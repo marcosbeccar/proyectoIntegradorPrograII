@@ -1,35 +1,55 @@
 
 let maquillajeController = {
-    index:{
+    index:function(req,res){
+        return res.render('indexx',{
 
+        })
     },
-    productos:{
-
+    productos:function(req,res){
+       return res.render('product',{
+            
+        })
     },
-    detalleProducto:{
-
+    detalleProducto:function(req,res){
+        return res.render('??? creo que no hace falta, el detalle es el product con distinto id',{
+            
+        })
     },
-    agregarProducto:{
-
+    agregarProducto:function(req,res){
+        return res.render('product-add',{
+            
+        })
     },
-    comentarios:{
-
+    comentarios:function(req,res){
+        return res.render('???',{
+            
+        })
     }, 
-    perfil:{
-
+    perfil:function(req,res){
+        return res.render('profile',{
+            
+        })
     },
-    editarPerfil:{
-        
+    editarPerfil:function(req,res){
+        return res.render('profile-edit',{
+            
+        })
     },
-    registrarse:{
-
+    registrarse:function(req,res){
+        return res.render('register',{
+            
+        })
     },
-    iniciarSesion:{
-
+    iniciarSesion:function(req,res){
+        return res.render('login',{
+            
+        })
     },
-    resultadoBusqueda:{
-
-    },
+    resultadoBusqueda:function(req,res){
+        return res.render('search-results',{
+            
+        })
+    }
 }
 
 
