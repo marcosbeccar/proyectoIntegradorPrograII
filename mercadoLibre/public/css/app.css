@@ -477,6 +477,55 @@ textarea.form-input {
   color: #fff;
 }
 
+/*=== Estilos Formularios ====*/
+
+#registro-form-container {
+  width: 80vw; 
+  margin: 0 auto;
+  padding: 20px;
+}
+#registro-form {
+  width: 100%; 
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-group {
+  margin-bottom: 20px;
+}
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+  width: 80%; 
+  max-width: 300px; 
+  margin: 0 auto; 
+}
+.form-input {
+  width: 80%; 
+  max-width: 300px; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 0 auto; 
+}
+#submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #f5c9f3;
+  color: #0a26fd;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+#submit-btn:hover {
+  background-color: #eda0e9;
+}
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {

@@ -1,3 +1,4 @@
+const db=require('../db/data')
 
 let maquillajeController = {
     index:function(req,res){
@@ -17,7 +18,7 @@ let maquillajeController = {
     },
     agregarProducto:function(req,res){
         return res.render('product-add',{
-            
+            nombreUsuario: db.usuario[1].email
         })
     },
     comentarios:function(req,res){
@@ -27,12 +28,13 @@ let maquillajeController = {
     }, 
     perfil:function(req,res){
         return res.render('profile',{
-            
+            nombreUsuario: db.usuario[1].email,
+            fotoPerfil: db.usuario[1].foto_perfil
         })
     },
     editarPerfil:function(req,res){
         return res.render('profile-edit',{
-            
+            nombreUsuario: db.usuario[1].email
         })
     },
     registrarse:function(req,res){

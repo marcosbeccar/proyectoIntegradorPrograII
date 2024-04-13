@@ -6,7 +6,7 @@ const db = {
         contraseña: "pepito05",
         fecha: "21-03-04 00:00:00",
         dni: 45576980,
-        foto_perfil: "/images/fotopepito.jpg"
+        foto_perfil: "/images/usuario_default.png"
       },
       2: {
         id: 2,
@@ -14,7 +14,7 @@ const db = {
         contraseña: "carolina05",
         fecha: "17-05-09 00:00:00",
         dni: 45768980,
-        foto_perfil: "/images/fotocarolina.jpg"
+        foto_perfil: "/images/usuario_default.png"
       },
       3: {
         id: 3,
@@ -22,7 +22,7 @@ const db = {
         contraseña: "lauhern09",
         fecha: "09-08-10 00:00:00",
         dni: 455767820,
-        foto_perfil: "/images/fotolaura.jpg"
+        foto_perfil: "/images/usuario_default.png"
       },
       4: {
         id: 4,
@@ -30,7 +30,7 @@ const db = {
         contraseña: "beccaroscar",
         fecha: "07-08-11 00:00:00",
         dni: 455769823,
-        foto_perfil: "/images/fotooscar.jpg"
+        foto_perfil: "/images/usuario_default.png"
       },
       5: {
         id: 5,
@@ -38,7 +38,7 @@ const db = {
         contraseña: "aleperez99",
         fecha: "07-08-11 00:00:00",
         dni: 45576980,
-        foto_perfil: "/images/fotoalejandro.jpg"
+        foto_perfil: "/images/usuario_default.png"
       }
     },
     productos: [
@@ -166,4 +166,4 @@ const db = {
       ]
     };
     
-    export default db;
+    module.exports=db;
