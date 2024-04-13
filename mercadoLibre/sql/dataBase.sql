@@ -59,4 +59,46 @@ VALUES (DEFAULT, "alejandroperez@gmail.com", "aleperez99", "07-08-11 00:00:00", 
 
 -- INSERTO POSTEOS
 INSERT INTO tabla_productos (id, id_usuario, rutaImagen, nombreProducto, descripcionProducto, createdAT, updatedAt, deleteAt)
-VALUES (DEFAULT, 1, "https://i.pinimg.com/236x/2f/97/f0/2f97f05b32547f54ef1bdf99cd207c90.jpg", "labial", "Contiene pigmentos, aceites, ceras y emolientes que dan color y textura a los labios", NULL, NULL, NULL);
+VALUES (DEFAULT, 1, "/images/labial-rojo.png", "labial rojo", "Contiene pigmentos, aceites, ceras y emolientes que dan color y textura a los labios.", NULL, NULL, NULL);
+VALUES (DEFAULT, 2, "/images/m-pestaña.png", "mascara de pestaña ", "Producto cosmético que se aplica a las pestañas para agregar volumen, longitud, y definición, realzando así la mirada.", NULL, NULL, NULL);
+VALUES (DEFAULT, 3, "/images/corrector-ojeras.png", "corrector de ojeras", "Producto cosmético diseñado para disimular las ojeras y las imperfecciones alrededor de los ojos.", NULL, NULL, NULL);
+VALUES (DEFAULT, 4, "/images/nude.png", "labial nude", "Producto de maquillaje que se aplica en los labios para añadir color y brillo, proporcionando un aspecto sofisticado.", NULL, NULL, NULL);
+VALUES (DEFAULT, 5, "/images/iluminador.png", "iluminador", "Cosmético diseñado para resaltar y dar luminosidad a ciertas áreas del rostro, como pómulos, puente de la nariz y arco de cupido.", NULL, NULL, NULL);
+VALUES (DEFAULT, 1, "/images/gloss.jpeg", "gloss", "Producto cosmético que se aplica sobre los labios para darles un brillo luminoso y un aspecto jugoso.", NULL, NULL, NULL);
+VALUES (DEFAULT, 2, "/images/base.png", "base", "Producto de maquillaje diseñado para crear una capa uniforme sobre la piel, proporcionando cobertura, corrigiendo imperfecciones.", NULL, NULL, NULL);
+VALUES (DEFAULT, 3, "/images/delineador.png", "delineador de ojos", "Producto cosmético utilizado para resaltar y definir la forma de los ojos mediante líneas precisas y pigmentadas aplicadas a lo largo de la línea de las pestañas.", NULL, NULL, NULL);
+VALUES (DEFAULT, 4, "/images/rugor.png", "rubor", "Producto de maquillaje en polvo, crema o líquido que se aplica en las mejillas para añadir un toque de color.", NULL, NULL, NULL);
+VALUES (DEFAULT, 5, "/images/croncer.jpg", "broncer", "Producto de maquillaje diseñado para añadir un tono cálido y bronceado a la piel.", NULL, NULL, NULL);
+
+-- INSERTO COMENTARIOS
+INSERT INTO tabla_comentarios (id, id_usuario, id_producto, textoComentario, createdAT, updatedAt, deleteAt)
+VALUES (DEFAULT, 3, 1, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 4, 1, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 5, 1, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 4, 2, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 5, 2, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 1, 2, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 2, 3, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 3, 3, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 4, 3, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 5, 4, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 1, 4, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 2, 4, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 3, 5, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 4, 5, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 5, 5, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 1, 6, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 2, 6, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 3, 6, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 4, 7, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 5, 7, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 1, 7, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 2, 8, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 3, 8, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 4, 8, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 5, 9, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 1, 9, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 2, 9, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 3, 10, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 4, 10, "Muy buen producto", NULL, NULL, NULL)
+VALUES (DEFAULT, 5, 10, "Muy buen producto", NULL, NULL, NULL)
