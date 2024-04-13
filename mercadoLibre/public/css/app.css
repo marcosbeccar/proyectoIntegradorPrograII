@@ -4,7 +4,7 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
+  --yellow: #f5c9f3;
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
@@ -43,7 +43,7 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: rgb(14, 54, 92);
+  color: #0e365c;
 }
 
 figure {
