@@ -28,6 +28,7 @@ let maquillajeController = {
     }, 
     perfil:function(req,res){
         return res.render('profile',{
+            data: db.productos,
             nombreUsuario: db.usuario[1].email,
             fotoPerfil: db.usuario[1].foto_perfil
         })
