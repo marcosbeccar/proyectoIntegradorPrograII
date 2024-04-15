@@ -17,18 +17,19 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 		<h2>Login</h2>
-		<form action="" method="GET"> <!-- Para evitar que se rompa, dejamos vacío el action -->
+		<form action="" method="GET" id="registro-form"> <!--uso el mismo id que en register-->
 			<label for="usuario">Usuario (email):</label>
-			<input type="email" id="usuario" name="usuario"><br>
-
+			<input type="email" id="usuario" name="usuario" class="form-input"><br>
+		
 			<label for="contrasena">Contraseña:</label>
-			<input type="password" id="contrasena" name="contrasena"><br>
-
-			<input type="checkbox" id="recordarme" name="recordarme">
+			<input type="password" id="contrasena" name="contrasena" class="form-input"><br>
+		
+			<input type="checkbox" id="recordarme" name="recordarme" class="form-checkbox">
 			<label for="recordarme">Recordarme</label><br>
-
-			<button type="submit">Enviar</button>
+		
+			<button type="submit" id="submit-btn" class="form-button">Enviar</button>
 		</form>
+		
 		
 		</div>
 	</div>
