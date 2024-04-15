@@ -12,8 +12,8 @@ let maquillajeController = {
         })
     },
     detalleProducto:function(req,res){
-        return res.render('??? creo que no hace falta, el detalle es el product con distinto id',{
-            
+        return res.render('product-detail',{
+            data: db.productos
         })
     },
     agregarProducto:function(req,res){
