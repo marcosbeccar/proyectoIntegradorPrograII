@@ -18,14 +18,14 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/images/products/default-image.png" alt="" class="product-detail-img">
+					<img src=<%= data[5].rutaImagen %> alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						Descripción corta: Producto cosmético que se aplica sobre los labios para darles un brillo luminoso y un aspecto jugoso.</p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<article>
-							<img src= <%= data[0].comentarios[0].imagenperfil %> alt="">
+							<img src= <%= data[0].comentarios[0].imagenPerfil %>>
 							<div class="data">
 								<p class="user">
 								<strong> <a href="http://localhost:3000/maquillaje/perfil"> <%= data[0].comentarios[0].nombreUsuario %> </a> </strong>
@@ -33,7 +33,7 @@
 							</div>
 						</article>
 						<article>
-							<img src=<%= data[0].comentarios[1].imagenperfil %> alt="">
+							<img src=<%= data[0].comentarios[1].imagenPerfil %> alt="">
 							<div class="data">
 								<p class="user">
 									<strong> <a href="http://localhost:3000/maquillaje/perfil"> <%= data[0].comentarios[1].nombreUsuario %> </a> </strong>
@@ -41,7 +41,7 @@
 							</div>
 						</article>
 						<article>
-							<img src=<%= data[0].comentarios[2].imagenperfil %> alt="">
+							<img src=<%= data[0].comentarios[2].imagenPerfil %> alt="">
 							<div class="data">
 								<p class="user">
 									<strong> <a href="http://localhost:3000/maquillaje/perfil"> <%= data[0].comentarios[2].nombreUsuario %> </a> </strong>
@@ -50,7 +50,7 @@
 						</article>
 
 					</section>
-					<form class="form" action="" method="POST">
+					<form class="form" action="" method="get">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
