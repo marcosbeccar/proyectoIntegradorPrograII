@@ -3,7 +3,7 @@ const db=require('../db/data')
 let maquillajeController = {
     index:function(req,res){
         return res.render('indexx',{
-
+            data: db.productos
         })
     },
     productos:function(req,res){
