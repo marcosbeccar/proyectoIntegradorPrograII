@@ -297,6 +297,10 @@ hr {
   padding: 15px 0;
 }
 
+#integrantes{
+  text-align: center;
+  font-size: 18px;
+}
 
 /*====== Product Detail ======*/
 .product-detail {
@@ -577,4 +581,5 @@ label {
     width: 95%;
     margin: auto;
   }
+
 }
