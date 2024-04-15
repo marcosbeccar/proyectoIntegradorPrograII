@@ -57,7 +57,7 @@ const db = {
         {
           id: 2,
           id_usuario: 2,
-          rutaImagen: "/images/m-pestaña.png",
+          rutaImagen: "/images/m-pestanias.png",
           nombreProducto: "mascara de pestaña",
           descripcionProducto: "Producto cosmético que se aplica a las pestañas para agregar volumen, longitud, y definición, realzando así la mirada.",
           comentarios: [

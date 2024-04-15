@@ -40,15 +40,15 @@
 			<div class="col-12">
 				<h2 class="products-title">Mis productos</h2>
 			</div>
-			<!-- Show mis productos -->
+			<!-- Show the "ultimos" products -->
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="http://localhost:3000/maquillaje/detalleProducto">
 						<figure class="product-box_image">
-							<img src="images/products/default-image.png" alt="cafetera moulinex">
+							<img src=<%= data[0].rutaImagen %> alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
-							<h2> <%= data[0].nombreProducto %></h2>
+							<h2><%= data[0].nombreProducto %>  </h2>
 							<p>Producto cosmético</p>
 							<p>Comentarios: 5</p>
 						</article>
@@ -59,7 +59,7 @@
 				<section class="product-box">
 					<a href="http://localhost:3000/maquillaje/detalleProducto">
 						<figure class="product-box_image">
-							<img src="images/products/default-image.png" alt="cafetera moulinex">
+							<img src=<%= data[1].rutaImagen %> alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
 							<h2> <%= data[1].nombreProducto %> </h2>
@@ -73,10 +73,10 @@
 				<section class="product-box">
 					<a href="http://localhost:3000/maquillaje/detalleProducto">
 						<figure class="product-box_image">
-							<img src="images/products/default-image.png" alt="cafetera moulinex">
+							<img src=<%= data[2].rutaImagen %> alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
-							<h2> <%= data[2].nombreProducto %> </h2>
+							<h2> <%= data[2].nombreProducto %></h2>
 							<p>Producto cosmético</p>
 							<p>Comentarios: 5</p>
 						</article>
@@ -87,7 +87,7 @@
 				<section class="product-box">
 					<a href="http://localhost:3000/maquillaje/detalleProducto">
 						<figure class="product-box_image">
-							<img src="images/products/default-image.png" alt="cafetera moulinex">
+							<img src=<%= data[3].rutaImagen %> alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
 							<h2> <%= data[3].nombreProducto %> </h2>
@@ -97,14 +97,16 @@
 					</a>
 				</section>
 			</div>
+		</div>
+		<div class="row">
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="http://localhost:3000/maquillaje/detalleProducto">
 						<figure class="product-box_image">
-							<img src="images/products/default-image.png" alt="cafetera moulinex">
+							<img src=<%= data[4].rutaImagen %> alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
-							<h2> <%= data[4].nombreProducto %> </h2>
+							<h2> <%= data[4].nombreProducto %></h2>
 							<p>Producto cosmético</p>
 							<p>Comentarios: 5</p>
 						</article>
@@ -115,7 +117,7 @@
 				<section class="product-box">
 					<a href="http://localhost:3000/maquillaje/detalleProducto">
 						<figure class="product-box_image">
-							<img src="images/products/default-image.png" alt="cafetera moulinex">
+							<img src="<%= data[5].rutaImagen %>" alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
 							<h2> <%= data[5].nombreProducto %> </h2>
@@ -129,10 +131,10 @@
 				<section class="product-box">
 					<a href="http://localhost:3000/maquillaje/detalleProducto">
 						<figure class="product-box_image">
-							<img src="images/products/default-image.png" alt="cafetera moulinex">
+							<img src=<%= data[6].rutaImagen %> alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
-							<h2> <%= data[6].nombreProducto %> </h2>
+							<h2> <%= data[6].nombreProducto %></h2>
 							<p>Producto cosmético</p>
 							<p>Comentarios: 5</p>
 						</article>
@@ -143,10 +145,10 @@
 				<section class="product-box">
 					<a href="http://localhost:3000/maquillaje/detalleProducto">
 						<figure class="product-box_image">
-							<img src="images/products/default-image.png" alt="cafetera moulinex">
+							<img src=<%= data[7].rutaImagen %> alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
-							<h2> <%= data[7].nombreProducto %> </h2>
+							<h2> <%= data[7].nombreProducto %></h2>
 							<p>Producto cosmético</p>
 							<p>Comentarios: 5</p>
 						</article>
