@@ -49,7 +49,7 @@ const db = {
           nombreProducto: "labial rojo",
           descripcionProducto: "Contiene pigmentos, aceites, ceras y emolientes que dan color y textura a los labios.",
           comentarios: [
-            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.jpeg" },
+            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.webp" },
             { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre_2.jpeg" },
             { nombreUsuario: "Alejandro Perez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_himbre_3.jpeg" }
           ]
@@ -73,7 +73,7 @@ const db = {
           nombreProducto: "corrector de ojeras",
           descripcionProducto: "Producto cosmético diseñado para disimular las ojeras y las imperfecciones alrededor de los ojos.",
           comentarios: [
-            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.jpeg" },
+            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.webp" },
             { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre_2.jpeg" },
             { nombreUsuario: "Alejandro Perez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_himbre_3.jpeg" }
           ]
@@ -99,7 +99,7 @@ const db = {
           comentarios: [
             { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre.jpeg" },
             { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer.webp" },
-            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.jpeg" }
+            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.webp" }
           ]
         },
         {
@@ -134,7 +134,7 @@ const db = {
           nombreProducto: "delineador de ojos",
           descripcionProducto: "Producto cosmético utilizado para resaltar y definir la forma de los ojos mediante líneas precisas y pigmentadas aplicadas a lo largo de la línea de las pestañas.",
           comentarios: [
-            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.jpeg" },
+            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.webp" },
             { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre_2.jpeg" },
             { nombreUsuario: "Alejandro Perez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_himbre_3.jpeg" }
           ]
@@ -160,7 +160,7 @@ const db = {
           comentarios: [
             { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre.jpeg" },
             { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer.webp" },
-            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.jpeg" }
+            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.webp" }
           ]
         }
       ]
