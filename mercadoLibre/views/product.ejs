@@ -25,43 +25,27 @@
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<article>
-							<img src="https://via.placeholder.com/35" alt="">
+							<img src= <%= data[0].comentarios[0].imagenperfil %> alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="http://localhost:3000/maquillaje/perfil">Nombre usuario: </a> </strong>
-								 Ame el producto</p>
+								<strong> <a href="http://localhost:3000/maquillaje/perfil"> <%= data[0].comentarios[0].nombreUsuario %> </a> </strong>
+								<%= data[0].comentarios[0].textoComentario %></p>
 							</div>
 						</article>
 						<article>
-							<img src="https://via.placeholder.com/35" alt="">
+							<img src=<%= data[0].comentarios[1].imagenperfil %> alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="http://localhost:3000/maquillaje/perfil">Nombre usuario: </a> </strong>
-									El acabado del producto es excelente.</p>
+									<strong> <a href="http://localhost:3000/maquillaje/perfil"> <%= data[0].comentarios[1].nombreUsuario %> </a> </strong>
+								<%= data[0].comentarios[1].textoComentario %></p>
 							</div>
 						</article>
 						<article>
-							<img src="https://via.placeholder.com/35" alt="">
+							<img src=<%= data[0].comentarios[2].imagenperfil %> alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="http://localhost:3000/maquillaje/perfil">Nombre usuario: </a> </strong>
-									Ya se lo recomende a mis amigas! </p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="http://localhost:3000/maquillaje/perfil">Nombre usuario: </a> </strong>
-									Cumple lo que promete, me encanto! </p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="http://localhost:3000/maquillaje/perfil">Nombre usuario: </a> </strong>
-									Ameeeeeeee!!!! Quiero mil masss </p>
+									<strong> <a href="http://localhost:3000/maquillaje/perfil"> <%= data[0].comentarios[2].nombreUsuario %> </a> </strong>
+								<%= data[0].comentarios[2].textoComentario %></p>
 							</div>
 						</article>
 

@@ -43,19 +43,19 @@ CREATE TABLE tabla_comentarios(
 
 -- INSERTO USUARIOS 
 INSERT INTO tabla_de_usuario (id, email, contraseña, fecha, dni, foto_perfil, createdAT, updatedAt, deletedAt)
-VALUES (DEFAULT, "pepitogomez@gmail.com", "pepito05", "21-03-04 00:00:00", 45576980, "/images/usuario_default.png",  NULL, NULL, NULL); 
+VALUES (DEFAULT, "pepitogomez@gmail.com", "pepito05", "21-03-04 00:00:00", 45576980, "/images/perfil_hombre.jpeg",  NULL, NULL, NULL); 
 
 INSERT INTO tabla_de_usuario (id, email, contraseña, fecha, dni, foto_perfil, createdAT, updatedAt, deletedAt)
-VALUES (DEFAULT, "carolinarodriguez@gmail.com", "carolina05", "17-05-09 00:00:00", 45768980, "/images/usuario_default.png", NULL, NULL, NULL); 
+VALUES (DEFAULT, "carolinarodriguez@gmail.com", "carolina05", "17-05-09 00:00:00", 45768980, "/images/perfil_mujer.webp", NULL, NULL, NULL); 
 
 INSERT INTO tabla_de_usuario (id, email, contraseña, fecha, dni, foto_perfil, createdAT, updatedAt, deletedAt)
-VALUES (DEFAULT, "laurahernandez@gmail.com", "lauhern09", "09-08-10 00:00:00", 455767820, "/images/usuario_default.png", NULL, NULL, NULL); 
+VALUES (DEFAULT, "laurahernandez@gmail.com", "lauhern09", "09-08-10 00:00:00", 455767820, "/images/perfil_mujer_2.jpep", NULL, NULL, NULL); 
 
 INSERT INTO tabla_de_usuario (id, email, contraseña, fecha, dni, foto_perfil, createdAT, updatedAt, deletedAt)
-VALUES (DEFAULT, "oscarbeccar@gmail.com", "beccaroscar", "07-08-11 00:00:00", 455769823, "/images/usuario_default.png", NULL, NULL, NULL); 
+VALUES (DEFAULT, "oscarbeccar@gmail.com", "beccaroscar", "07-08-11 00:00:00", 455769823, "/images/perfil_hombre_2.jpeg", NULL, NULL, NULL); 
 
 INSERT INTO tabla_de_usuario (id, email, contraseña, fecha, dni, foto_perfil, createdAT, updatedAt, deletedAt)
-VALUES (DEFAULT, "alejandroperez@gmail.com", "aleperez99", "07-08-11 00:00:00", 45576980, "/images/usuario_default.png", NULL, NULL, NULL); 
+VALUES (DEFAULT, "alejandroperez@gmail.com", "aleperez99", "07-08-11 00:00:00", 45576980, "/images/perfil_himbre_3.jpeg", NULL, NULL, NULL); 
 
 -- INSERTO POSTEOS
 INSERT INTO tabla_productos (id, id_usuario, rutaImagen, nombreProducto, descripcionProducto, createdAT, updatedAt, deleteAt)

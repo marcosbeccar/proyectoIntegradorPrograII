@@ -6,7 +6,7 @@ const db = {
         contraseña: "pepito05",
         fecha: "21-03-04 00:00:00",
         dni: 45576980,
-        foto_perfil: "/images/usuario_default.png"
+        foto_perfil: "/images/perfil_hombre.jpeg"
       },
       2: {
         id: 2,
@@ -14,7 +14,7 @@ const db = {
         contraseña: "carolina05",
         fecha: "17-05-09 00:00:00",
         dni: 45768980,
-        foto_perfil: "/images/usuario_default.png"
+        foto_perfil: "/images/perfil_mujer.webp"
       },
       3: {
         id: 3,
@@ -22,7 +22,7 @@ const db = {
         contraseña: "lauhern09",
         fecha: "09-08-10 00:00:00",
         dni: 455767820,
-        foto_perfil: "/images/usuario_default.png"
+        foto_perfil: "/images/perfil_mujer_2.jpeg"
       },
       4: {
         id: 4,
@@ -30,7 +30,7 @@ const db = {
         contraseña: "beccaroscar",
         fecha: "07-08-11 00:00:00",
         dni: 455769823,
-        foto_perfil: "/images/usuario_default.png"
+        foto_perfil: "/images/perfil_hombre_2.jpeg"
       },
       5: {
         id: 5,
@@ -38,7 +38,7 @@ const db = {
         contraseña: "aleperez99",
         fecha: "07-08-11 00:00:00",
         dni: 45576980,
-        foto_perfil: "/images/usuario_default.png"
+        foto_perfil: "/images/perfil_himbre_3.jpeg"
       }
     },
     productos: [
@@ -49,9 +49,9 @@ const db = {
           nombreProducto: "labial rojo",
           descripcionProducto: "Contiene pigmentos, aceites, ceras y emolientes que dan color y textura a los labios.",
           comentarios: [
-            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotolaura.jpg" },
-            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotooscar.jpg" },
-            { nombreUsuario: "Alejandro Perez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotoalejandro.jpg" }
+            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.jpeg" },
+            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre_2.jpeg" },
+            { nombreUsuario: "Alejandro Perez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_himbre_3.jpeg" }
           ]
         },
         {
@@ -61,9 +61,9 @@ const db = {
           nombreProducto: "mascara de pestaña",
           descripcionProducto: "Producto cosmético que se aplica a las pestañas para agregar volumen, longitud, y definición, realzando así la mirada.",
           comentarios: [
-            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotocarolina.jpg" },
-            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotooscar.jpg" },
-            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotopepito.jpg" }
+            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer.webp" },
+            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre_2.jpeg" },
+            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre.jpeg" }
           ]
         },
         {
@@ -73,9 +73,9 @@ const db = {
           nombreProducto: "corrector de ojeras",
           descripcionProducto: "Producto cosmético diseñado para disimular las ojeras y las imperfecciones alrededor de los ojos.",
           comentarios: [
-            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotolaura.jpg" },
-            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotooscar.jpg" },
-            { nombreUsuario: "Alejandro Perez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotoalejandro.jpg" }
+            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.jpeg" },
+            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre_2.jpeg" },
+            { nombreUsuario: "Alejandro Perez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_himbre_3.jpeg" }
           ]
         },
         {
@@ -85,9 +85,9 @@ const db = {
           nombreProducto: "labial nude",
           descripcionProducto: "Producto de maquillaje que se aplica en los labios para añadir color y brillo, proporcionando un aspecto sofisticado.",
           comentarios: [
-            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotooscar.jpg" },
-            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotopepito.jpg" },
-            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotocarolina.jpg" }
+            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre_2.jpeg" },
+            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre.jpeg" },
+            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer.webp" }
           ]
         },
         {
@@ -97,9 +97,9 @@ const db = {
           nombreProducto: "iluminador",
           descripcionProducto: "Cosmético diseñado para resaltar y dar luminosidad a ciertas áreas del rostro, como pómulos, puente de la nariz y arco de cupido.",
           comentarios: [
-            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotopepito.jpg" },
-            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotocarolina.jpg" },
-            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotolaura.jpg" }
+            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre.jpeg" },
+            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer.webp" },
+            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.jpeg" }
           ]
         },
         {
@@ -109,10 +109,10 @@ const db = {
           nombreProducto: "gloss",
           descripcionProducto: "Producto cosmético que se aplica sobre los labios para darles un brillo luminoso y un aspecto jugoso.",
           comentarios: [
-            { nombreUsuario: "Alejandro Perez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotoalejandro.jpg" },
-            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotooscar.jpg" },
-            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotopepito.jpg" },
-            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotocarolina.jpg" }
+            { nombreUsuario: "Alejandro Perez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_himbre_3.jpeg" },
+            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre_2.jpeg" },
+            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre.jpeg" },
+            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer.webp" }
           ]
         },
         {
@@ -122,9 +122,9 @@ const db = {
           nombreProducto: "base",
           descripcionProducto: "Producto de maquillaje diseñado para crear una capa uniforme sobre la piel, proporcionando cobertura, corrigiendo imperfecciones.",
           comentarios: [
-            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotooscar.jpg" },
-            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotopepito.jpg" },
-            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotocarolina.jpg" }
+            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre_2.jpeg" },
+            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre.jpeg" },
+            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer.webp" }
           ]
         },
         {
@@ -134,9 +134,9 @@ const db = {
           nombreProducto: "delineador de ojos",
           descripcionProducto: "Producto cosmético utilizado para resaltar y definir la forma de los ojos mediante líneas precisas y pigmentadas aplicadas a lo largo de la línea de las pestañas.",
           comentarios: [
-            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotolaura.jpg" },
-            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotooscar.jpg" },
-            { nombreUsuario: "Alejandro Perez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotoalejandro.jpg" }
+            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.jpeg" },
+            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre_2.jpeg" },
+            { nombreUsuario: "Alejandro Perez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_himbre_3.jpeg" }
           ]
         },
         {
@@ -146,9 +146,9 @@ const db = {
           nombreProducto: "rubor",
           descripcionProducto: "Producto de maquillaje en polvo, crema o líquido que se aplica en las mejillas para añadir un toque de color.",
           comentarios: [
-            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotooscar.jpg" },
-            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotopepito.jpg" },
-            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotocarolina.jpg" }
+            { nombreUsuario: "Oscar Beccar", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre_2.jpeg" },
+            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre.jpeg" },
+            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer.webp" }
           ]
         },
         {
@@ -158,9 +158,9 @@ const db = {
           nombreProducto: "broncer",
           descripcionProducto: "Producto de maquillaje diseñado para añadir un tono cálido y bronceado a la piel.",
           comentarios: [
-            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotopepito.jpg" },
-            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotocarolina.jpg" },
-            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/fotolaura.jpg" }
+            { nombreUsuario: "Pepito Gomez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_hombre.jpeg" },
+            { nombreUsuario: "Carolina Rodriguez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer.webp" },
+            { nombreUsuario: "Laura Hernandez", textoComentario: "Muy buen producto", imagenPerfil: "/images/perfil_mujer_2.jpeg" }
           ]
         }
       ]

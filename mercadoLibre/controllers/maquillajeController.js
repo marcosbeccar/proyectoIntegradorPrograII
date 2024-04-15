@@ -8,7 +8,7 @@ let maquillajeController = {
     },
     productos:function(req,res){
        return res.render('product',{
-            
+            data: db.productos
         })
     },
     detalleProducto:function(req,res){
