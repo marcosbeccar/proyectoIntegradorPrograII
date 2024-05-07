@@ -21,11 +21,6 @@ let productController={
             nombreUsuario: db.usuario[1].email
         })
     },
-    comentarios:function(req,res){
-        return res.render('???',{
-            
-        })
-    }, 
     resultadoBusqueda:function(req,res){
         return res.render('search-results',{
             
