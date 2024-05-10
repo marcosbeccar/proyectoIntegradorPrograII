@@ -1,6 +1,6 @@
 module.exports = function(sequelize, dataTypes){
 
-    let alias = "User"
+    let alias = "Users"
 
     let cols = {
         id:{
@@ -35,7 +35,7 @@ module.exports = function(sequelize, dataTypes){
     }
 
     let config = {
-        tableName: "tabla_de_usuarios", //NO ENTIENDO ESTO
+        tableName: "tabla_de_usuarios", //Nombre de la tabla en la base de datos
         timestamps: true,
         underscored: true
 

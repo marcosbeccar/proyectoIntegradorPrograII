@@ -1,6 +1,6 @@
 module.exports = function(sequelize, dataTypes){
 
-    let alias = "Comment"
+    let alias = "Comments"
 
     let cols = {
         id:{
@@ -33,7 +33,7 @@ module.exports = function(sequelize, dataTypes){
     }
 
     let config = {
-        tableName: "tabla_comentarios", //NO ENTIENDO ESTO
+        tableName: "tabla_comentarios", //Nombre de la tabla en la base de datos
         timestamps: true,
         underscored: true
 
