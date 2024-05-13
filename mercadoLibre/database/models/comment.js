@@ -9,13 +9,9 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER,
         },
         id_usuario:{
-            autoIncrement: true,
-            primaryKey: true,
             type: dataTypes.INTEGER,
         },
         id_producto:{
-            autoIncrement: true,
-            primaryKey: true,
             type: dataTypes.INTEGER,
         },
         comentario:{
