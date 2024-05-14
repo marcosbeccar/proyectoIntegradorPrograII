@@ -1,24 +1,25 @@
 const db=require('../database/models/index')
+const db1=require('../db/data')
 
 let productController={
     index:function(req,res){
         return res.render('index',{
-            data: db.productos
+            data: db1.productos
         })
     },
     productos:function(req,res){
        return res.render('product',{
-            data: db.productos
+            data: db1.productos
         })
     },
     detalleProducto:function(req,res){
         return res.render('product-detail',{
-            data: db.productos
+            data: db1.productos
         })
     },
     agregarProducto:function(req,res){
         return res.render('product-add',{
-            nombreUsuario: db.usuario[1].email
+            nombreUsuario: db1.usuario[1].email
         })
     },
     resultadoBusqueda:function(req,res){
