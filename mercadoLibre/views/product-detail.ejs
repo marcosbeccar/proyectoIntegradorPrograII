@@ -12,7 +12,7 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title">Nombre del producto</h2> 
 			<p class="product-detail-description">
-				<a href="http://localhost:3000/maquillaje/agregarProducto">Editar</a>
+				<a href="http://localhost:3000/product/agregarProducto">Editar</a>
 			</p>
 		</div>
 		<div class="product-detail">
@@ -28,7 +28,7 @@
 							<img src= <%= data[0].comentarios[0].imagenPerfil %>>
 							<div class="data">
 								<p class="user">
-								<strong> <a href="http://localhost:3000/maquillaje/perfil"> <%= data[0].comentarios[0].nombreUsuario %> </a> </strong>
+								<strong> <a href="http://localhost:3000/user"> <%= data[0].comentarios[0].nombreUsuario %> </a> </strong>
 								<%= data[0].comentarios[0].textoComentario %></p>
 							</div>
 						</article>
@@ -36,7 +36,7 @@
 							<img src=<%= data[0].comentarios[1].imagenPerfil %> alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="http://localhost:3000/maquillaje/perfil"> <%= data[0].comentarios[1].nombreUsuario %> </a> </strong>
+									<strong> <a href="http://localhost:3000/user"> <%= data[0].comentarios[1].nombreUsuario %> </a> </strong>
 								<%= data[0].comentarios[1].textoComentario %></p>
 							</div>
 						</article>
@@ -44,7 +44,7 @@
 							<img src=<%= data[0].comentarios[2].imagenPerfil %> alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="http://localhost:3000/maquillaje/perfil"> <%= data[0].comentarios[2].nombreUsuario %> </a> </strong>
+									<strong> <a href="http://localhost:3000/user"> <%= data[0].comentarios[2].nombreUsuario %> </a> </strong>
 								<%= data[0].comentarios[2].textoComentario %></p>
 							</div>
 						</article>
