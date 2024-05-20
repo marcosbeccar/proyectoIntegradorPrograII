@@ -32,7 +32,6 @@ module.exports = function(sequelize, dataTypes){
         tableName: "tabla_comentarios", //Nombre de la tabla en la base de datos
         timestamps: true,
         underscored: true
-
     }
 
     let Comment = sequelize.define(alias,cols,config)

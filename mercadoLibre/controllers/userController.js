@@ -23,6 +23,14 @@ let userController={
         return res.render('login',{
             
         })
+    },
+    create: function(req,res){
+        let usuarioLogueado = req.body; 
+        db1.tabla_de_usuario.create(usuarioLogueado)
+        .then(function(result){
+            return res.redirect("/user")
+        })
     }
+
 }
 module.exports = userController;
