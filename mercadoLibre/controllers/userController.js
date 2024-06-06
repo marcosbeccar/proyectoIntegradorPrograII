@@ -1,5 +1,5 @@
-const db=require('../database/models/index')
-const db1=require('../db/data')
+const db=require('../database/models')
+const db1=require('../db/data') //después lo borramos
 
 let userController={
     perfil:function(req,res){
@@ -14,22 +14,22 @@ let userController={
             nombreUsuario: db1.usuario[1].email
         })
     },
-    registrarse:function(req,res){
+    registrarse:function(req,res){ //solo sirve para mostrar la vista
         return res.render('register',{
             
         })
     },
-    iniciarSesion:function(req,res){
+    iniciarSesion:function(req,res){  //solo sirve para mostrar la vista
         return res.render('login',{
             
         })
     },
     create: function(req,res){
-        let usuarioLogueado = req.body; 
-        db1.tabla_de_usuario.create(usuarioLogueado)
-        .then(function(result){
-            return res.redirect("/user")
-        })
+        // let usuarioLogueado = req.body; 
+        // db1.tabla_de_usuario.create(usuarioLogueado)
+        // .then(function(result){
+        //     return res.redirect("/user")
+        // })
     }
 
 }

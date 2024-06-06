@@ -1,5 +1,5 @@
 const db=require('../database/models/index')
-const db1=require('../db/data')
+const db1=require('../db/data') //después lo borramos
 
 let productController={
     index:function(req,res){
