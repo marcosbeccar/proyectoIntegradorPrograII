@@ -24,12 +24,20 @@ let userController={
             
         })
     },
-    create: function(req,res){
-        // let usuarioLogueado = req.body; 
-        // db1.tabla_de_usuario.create(usuarioLogueado)
-        // .then(function(result){
-        //     return res.redirect("/user")
-        // })
+    register: function(req,res){
+        let data= req.body
+        
+        db.Users.create({
+            email: data.email,
+            contrasenia: data.contrasenia,
+            fecha: data.fecha_nacimiento,
+            dni: data.nro_documento,
+            foto_perfil: data.foto_perfil
+        })
+            .then(function(){
+                return res.redirect('/')
+            })
+            .catch(err=>console.log(err))
     }
 
 }

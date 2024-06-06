@@ -6,7 +6,7 @@ USE proyectoIntegrador;
 CREATE TABLE tabla_de_usuario (
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(50) NOT NULL,
-    contraseña VARCHAR(50) NOT NULL,
+    contrasenia VARCHAR(50) NOT NULL,
     fecha VARCHAR(50) NOT NULL,
     dni INT UNIQUE NOT NULL,
     foto_perfil VARCHAR(50) NOT NULL,

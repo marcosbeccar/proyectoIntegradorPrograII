@@ -17,7 +17,7 @@
 			<!-- Show the "ultimos" products -->
 			
 		<h2>Registración</h2>
-		<form action="/user/create" method="POST" id="registro-form">
+		<form action="/user/newUser" method="post" id="registro-form">
 			<div id="separador">
 			<label for="email">Email:</label>
 			<input type="email" id="email" name="email" class="form-input"><br>
@@ -25,8 +25,8 @@
 			<label for="usuario">Usuario:</label>
 			<input type="text" id="usuario" name="usuario" class="form-input"><br>
 		
-			<label for="contrasena">Contraseña:</label>
-			<input type="password" id="contrasena" name="contrasena" class="form-input"><br>
+			<label for="contrasenia">Contraseña:</label>
+			<input type="password" id="contrasenia" name="contrasenia" class="form-input"><br>
 		
 			<label for="fecha_nacimiento">Fecha de nacimiento:</label>
 			<input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-input"><br>
@@ -35,7 +35,7 @@
 			<input type="number" id="nro_documento" name="nro_documento" class="form-input"><br>
 		
 			<label for="foto_perfil">Foto de perfil:</label>
-			<input type="file" id="foto_perfil" name="foto_perfil" class="form-input"><br>
+			<input type="text" id="foto_perfil" name="foto_perfil" class="form-input"><br>
 			</div>
 			<button type="submit" id="submit-btn">Enviar</button>
 		</form>
