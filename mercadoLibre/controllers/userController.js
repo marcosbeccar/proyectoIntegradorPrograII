@@ -1,5 +1,6 @@
-const db=require('../database/models')
-const db1=require('../db/data') //después lo borramos
+const db=require('../database/models');
+const db1=require('../db/data'); //después lo borramos
+let bcrypt=require('bcryptjs');
 
 let userController={
     perfil:function(req,res){
@@ -29,7 +30,7 @@ let userController={
         
         db.Users.create({
             email: data.email,
-            contrasenia: data.contrasenia,
+            contrasenia: bcrypt.hashSync(data.contrasenia, 10),
             fecha: data.fecha_nacimiento,
             dni: data.nro_documento,
             foto_perfil: data.foto_perfil
