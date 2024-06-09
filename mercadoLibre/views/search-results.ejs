@@ -4,26 +4,39 @@
 <%- include ('./partials/head') %>
 
 <body>
-	<!-- Header -->
-	<%- include ('./partials/header') %>
-	<!-- /Header -->
+    <!-- Header -->
+    <%- include ('./partials/header') %>
+    <!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Resultados de búsqueda</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> 
-				Próximamente...<br>
-			////////////////
-			</h2>
+    <!-- Resultados de búsqueda -->
+    <div class="container products-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="products-title">Resultados de búsqueda</h2>
+            </div>
+            <% if (mensaje) { %>
+                <div class="col-12">
+                    <p><%= mensaje %></p>
+                </div>
+            <% } else { %>
+                <% productos.forEach(producto => { %>
+                    <div class="col-12 col-md-4">
+                        <div class="product-card">
+                            <a href="/productos/detalleProducto?id=<%= producto.id %>">
+                                <img src="<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>">
+                                <h3><%= producto.nombreProducto %></h3>
+                            </a>
+                            <p><%= producto.descripcionProducto %></p>
+                            <p>Publicado por: <a href="/user/perfil?id=<%= producto.usuario.id %>"><%= producto.usuario.email %></a></p>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } %>
+        </div>
+    </div>
 
-
-	<!-- footer -->
-	<%- include ('./partials/footer') %>
-	<!-- /footer -->
+    <!-- Footer -->
+    <%- include ('./partials/footer') %>
+    <!-- /Footer -->
 </body>
-
 </html>

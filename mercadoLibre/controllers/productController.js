@@ -22,10 +22,6 @@ let productController={
             nombreUsuario: db1.usuario[1].email
         })
     },
-    resultadoBusqueda:function(req,res){
-        return res.render('search-results',{
-            
-        })
-    }
+    
 }
 module.exports = productController;
