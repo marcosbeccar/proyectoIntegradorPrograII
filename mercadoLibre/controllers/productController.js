@@ -22,6 +22,36 @@ let productController={
             nombreUsuario: db1.usuario[1].email
         })
     },
+    resultadoBusqueda: function(req,res){
+        const query = req.query.q;
+        res.send(query)
+
+        if (!query) {
+            return res.render('search-results', { productos: [], mensaje: "No hay resultados para su criterio de búsqueda" });
+        }
+
+        db.Products.findAll({
+            where: {
+                [db.Sequelize.Op.or]: [
+                    { nombreProducto: { [db.Sequelize.Op.like]: '%${query}%´' } },
+                    { descripcionProducto: { [db.Sequelize.Op.like]: '%${query}%' } }
+                ]
+            },
+            include: [{ model: db.Users, as: 'usuario' }],
+            order: [['created_at', 'DESC']]
+        })
+        .then(productos => {
+            if (productos.length === 0) {
+                return res.render('search-results', { productos: [], mensaje: "No hay resultados para su criterio de búsqueda" });
+            }
+
+            res.render('search-results', { productos, mensaje: null });
+        })
+        .catch(error => {
+            console.error(error);
+            res.status(500).send('Error interno del servidor');
+        });
+    }
     
 }
 module.exports = productController;
