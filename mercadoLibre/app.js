@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session( { 
-  secret: "Nuestro mensaje secreto",
+  secret: "proyectointegrador2",
 	resave: false,
 	saveUninitialized: true 
 }));
