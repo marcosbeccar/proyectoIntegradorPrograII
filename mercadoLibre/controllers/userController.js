@@ -44,13 +44,17 @@ let userController={
        let data= req.body
        
         db.Users.findOne({ where: { email: data.usuario } })
-    
+        
             .then(function(user){
+                res.send(user)
                 if (!user){
                     return res.send("No se encontro");
                 }
                
                 if (bcrypt.compareSync(data.contrasenia, user.contrasenia)){
+                    if (req.body.recordarme != undefined && data.recordarme){
+                    res.cookie("user", user,  {maxAge: 1000*60*500})
+                    }
                     return res.redirect('/')   
                 } else{
                     return res.send("No coinciden contraseñas");
