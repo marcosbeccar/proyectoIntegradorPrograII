@@ -42,22 +42,24 @@ let userController={
     }, 
     login: function(req,res){
        let data= req.body
-        .then(function(info){
-        let user = db.Users.findOne({ where: { email: data.usuario } });
-        //let password = db.Users.findOne({ where: { contrasenia: data.contrasenia } });
-            if (!user){
-                return res.render('login', { message: 'Usuario no encontrado' });
-            } 
-        
-            if (user.contrasenia == data.contrasenia){
-                return res.redirect('/')   
-            } else{
-                return res.render('login', { message: 'Incorrecto, por favor intente de nuevo.' });
-            }
-       })
-       .catch(function(error){
+       
+        db.Users.findOne({ where: { email: data.usuario } })
+    
+            .then(function(user){
+                if (!user){
+                    return res.send("No se encontro");
+                }
+               
+                if (bcrypt.compareSync(data.contrasenia, user.contrasenia)){
+                    return res.redirect('/')   
+                } else{
+                    return res.send("No coinciden contraseñas");
+                }
+            })
+
+        .catch(function(error){
         console.log(error)
-       })
+        })
        
     }
 
