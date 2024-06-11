@@ -23,18 +23,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//==============================  session  ====================================================
 app.use(session( { 
   secret: "proyectointegrador2",
 	resave: false,
 	saveUninitialized: true 
 }));
 
-app.use(function(req,res, next){
-  if (req.session.user != undefined){
-    res.locals.user = req.session.user
-  }
-  return next()
-})
+//una vez que tengo la session iniciada arriba, le mando todas las cookies juntas a las vistas:
+app.use(function(req, res, next){
+  res.locals.cookies = req.cookies;
+  next(); //se usa next porque esto es middleware (código en app.js), si no lo ponés se rompe
+});
+//=============================================================================================
 
 app.use('/', indexRouter)
 app.use('/product', productRouter);
