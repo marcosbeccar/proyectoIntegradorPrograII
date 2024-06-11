@@ -20,6 +20,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         foto_perfil: {
             type: dataTypes.STRING,
+        },
+        usuario:{
+            type: dataTypes.STRING
         }
     };
     let config = {

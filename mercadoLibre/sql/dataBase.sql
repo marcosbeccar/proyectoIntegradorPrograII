@@ -140,3 +140,6 @@ VALUES (DEFAULT, 4, 10, "Muy buen producto", NULL, NULL);
 INSERT INTO tabla_comentarios (id, id_usuario, id_productos, comentario, created_at, updated_at)
 VALUES (DEFAULT, 5, 10, "Muy buen producto", NULL, NULL);
 
+--Correción
+ALTER TABLE tabla_de_usuarios
+ADD COLUMN usuario VARCHAR(100);

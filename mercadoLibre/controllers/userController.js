@@ -33,7 +33,8 @@ let userController={
             contrasenia: bcrypt.hashSync(data.contrasenia, 10),
             fecha: data.fecha_nacimiento,
             dni: data.nro_documento,
-            foto_perfil: data.foto_perfil
+            foto_perfil: data.foto_perfil,
+            usuario: data.usuario
         })
             .then(function(){
                 return res.redirect('/')
