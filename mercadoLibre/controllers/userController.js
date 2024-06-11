@@ -1,6 +1,7 @@
 const db=require('../database/models');
 const db1=require('../db/data'); //después lo borramos
 let bcrypt=require('bcryptjs');
+const {validationResult} = require("express-validator");
 
 let userController={
     perfil:function(req,res){
@@ -27,6 +28,14 @@ let userController={
     },
     register: function(req,res){
         let data= req.body
+
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()){
+            
+        }else{
+            res.render("register", {errors: errors.mapped(), old:req.body});
+        }
         
         db.Users.create({
             email: data.email,
