@@ -74,5 +74,12 @@ let userController = {
         console.log(error);
       });
   },
-};
+
+  logout: function(req,res){
+    res.clearCookie("userLogueado"); // Borra la cookie de usuario logueado
+    res.redirect("/"); // Redirige a la página principal u otra página de tu elección
+  }
+
+}
+
 module.exports = userController;

@@ -34,15 +34,15 @@
 
             <ul class="right-navbar">
                 <li> 
-                    <p> <%= cookies.userLogueado.Usuario %>  </p>
+                    <p> <%= cookies.userLogueado.usuario %>  </p>
                 </li>
                 <li><a href="http://localhost:3000/user/perfil">
-                        <%= cookies.userLogueado.Usuario %> <i class="fas fa-user"></i> 
+                        <%= cookies.userLogueado.usuario %> <i class="fas fa-user"></i> 
                     </a>
 
                 </li>
                 <li>
-                    <form action="" method="get">
+                    <form action="/user/logout" method="post">
                         <button class="logout" type="submit">
                             Cerrar sesión <i class="fas fa-sign-in-alt"></i>
                         </button>

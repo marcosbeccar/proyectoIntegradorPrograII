@@ -56,5 +56,6 @@ router.get("/registrarse", userController.registrarse); //mostrar el formulario
 router.post("/newUser", validationsRegister, userController.register); //recibe el formulario
 router.get("/iniciarSesion", userController.iniciarSesion); // mostrar formulario de login
 router.post("/login", validationsLogin, userController.login); // recibe formulario de login
+router.post("/logout", userController.logout);
 
 module.exports = router;
