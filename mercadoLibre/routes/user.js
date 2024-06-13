@@ -17,8 +17,8 @@ let validationsRegister = [
     .custom(function (value, { req }) {
       //Verifica que el email no exista previamente
       return db.Users.findOne({
-        where: { email: req.body.email }, //usamos el atributo value del campo como imput
-      }).then(function (user) {
+        where: { email: req.body.email }, //podríamos usar email:value, pero es más canchero así porque ya pedí el {req}
+      }).then(function (user) {          //value anda igual porque es literalmente el email. lo del req se usa en otros casos
         if (user) {
           throw new Error("El email ingresado ya existe.");
         }

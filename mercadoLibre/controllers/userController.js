@@ -56,7 +56,7 @@ let userController = {
       .then(function (user) {
         res.send(user);
         if (!user) {
-          return res.send("No se encontro");
+          return res.send("No se encontró");
         }
 
         if (bcrypt.compareSync(data.contrasenia, user.contrasenia)) {
