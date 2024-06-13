@@ -489,15 +489,18 @@ textarea.form-input {
   margin: 0 auto;
   padding: 20px;
 }
+
 #registro-form {
   width: 100%; 
   border-radius: 10px;
   background-color: #f8f8f8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .form-group {
   margin-bottom: 20px;
 }
+
 label {
   display: block;
   font-weight: bold;
@@ -507,6 +510,7 @@ label {
   max-width: 300px; 
   margin: 0 auto; 
 }
+
 .form-input {
   width: 80%; 
   max-width: 300px; 
@@ -516,6 +520,7 @@ label {
   box-sizing: border-box;
   margin: 0 auto; 
 }
+
 #submit-btn {
   width: 100%;
   padding: 12px;
@@ -532,12 +537,42 @@ label {
   background-color: #eda0e9;
 }
 
-#separador{
+#separador {
   padding: 20px;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
+
+/* Mensajes de error */
+.mensajes-error {
+  color: #ff5733;
+  background-color: #f9e7e3;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 5px 0;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: help;
+}
+
+/* Efecto de hover (lo saqué de una página) */
+.mensajes-error:hover {
+  background-color: #ffcccb;
+  transform: scale(1.02);
+}
+
+/* Efecto de clic */
+.mensajes-error:active {
+  background-color: #ffb3b2;
+}
+
+
+
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
