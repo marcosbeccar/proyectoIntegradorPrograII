@@ -16,28 +16,34 @@
 				<h2 class="products-title">Editar mi perfil</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<form action="" method="GET" id="registro-form"> <!-- Para evitar que se rompa, dejamos vacío el action -->
-				<div id="separador">
-				<label for="email">Email:</label>
-				<input type="email" id="email" name="email" class="form-input"><br>
-			
-				<label for="usuario">Usuario:</label>
-				<input type="text" id="usuario" name="usuario" class="form-input"><br>
-			
-				<label for="contrasena">Contraseña:</label>
-				<input type="password" id="contrasena" name="contrasena" class="form-input"><br>
-			
-				<label for="fecha_nacimiento">Fecha de nacimiento:</label>
-				<input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-input"><br>
-			
-				<label for="nro_documento">Número de documento:</label>
-				<input type="number" id="nro_documento" name="nro_documento" class="form-input"><br>
-			
-				<label for="foto_perfil">Foto de perfil:</label>
-				<input type="text" id="foto_perfil" name="foto_perfil" class="form-input"><br>
-				</div>
-				<button type="submit" id="submit-btn">Enviar</button>
-			</form>
+			<form action="/user/editarPerfilSend" method="post" id="registro-form">
+                <div id="separador">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-input"
+                        value="<%= locals.old && old.email ? old.email : '' %>"><br>
+                    <!-- '?' es como un if, y ':' es como un else-->
+
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" id="usuario" name="usuario" class="form-input"
+                        value="<%= locals.old && old.usuario ? old.usuario : '' %>"><br>
+
+                    <label for="contrasenia">Contraseña:</label>
+                    <input type="password" id="contrasenia" name="contrasenia" class="form-input"><br>
+
+                    <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-input"
+                        value="<%= locals.old && old.fecha_nacimiento ? old.fecha_nacimiento : '' %>"><br>
+
+                    <label for="nro_documento">Número de documento:</label>
+                    <input type="number" id="nro_documento" name="nro_documento" class="form-input"
+                        value="<%= locals.old && old.nro_documento ? old.nro_documento : '' %>"><br>
+
+                    <label for="foto_perfil">Foto de perfil:</label>
+                    <input type="text" id="foto_perfil" name="foto_perfil" class="form-input"
+                        value="<%= locals.old && old.foto_perfil ? old.foto_perfil : '' %>"><br>
+                </div>
+                <button type="submit" id="submit-btn">Enviar</button>
+            </form>
 
 
 	<!-- footer -->

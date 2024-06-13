@@ -6,16 +6,33 @@ const { validationResult, cookie } = require("express-validator"); //pido las va
 
 let userController = {
   perfil: function (req, res) {
+    
+
     return res.render("profile", {
       data: db.productos,
-      nombreUsuario: db1.usuario[1].email,
-      fotoPerfil: db1.usuario[1].foto_perfil,
+      usuario: req.cookies.userLogueado.usuario,
+      foto_perfil: req.cookies.userLogueado.foto_perfil,
+      email: req.cookies.userLogueado.email,
     });
   },
   editarPerfil: function (req, res) {
     return res.render("profile-edit", {
       nombreUsuario: db1.usuario[1].email,
     });
+  },
+  profileEdit:function(req,res){
+    let errors = validationResult(req);
+    if (errors.isEmpty()){
+      let data=req.body;
+      db.Users.update({
+        email: data.email,
+        //contrasenia: bcrypt.hashSync(data.contrasenia, 10),
+        fecha: data.fecha_nacimiento,
+        dni: data.nro_documento,
+        foto_perfil: data.foto_perfil,
+        usuario: data.usuario,
+      })
+    }
   },
   registrarse: function (req, res) {
     //solo sirve para mostrar la vista
