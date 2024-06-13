@@ -33,9 +33,13 @@
             </ul>
 
             <ul class="right-navbar">
+                <li> 
+                    <p> <%= cookies.userLogueado.Usuario %>  </p>
+                </li>
                 <li><a href="http://localhost:3000/user/perfil">
-                        <%= nombreUsuario %> <i class="fas fa-user"></i> 
+                        <%= cookies.userLogueado.Usuario %> <i class="fas fa-user"></i> 
                     </a>
+
                 </li>
                 <li>
                     <form action="" method="get">

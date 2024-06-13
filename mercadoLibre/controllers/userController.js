@@ -1,7 +1,7 @@
 const db = require("../database/models");
 const db1 = require("../db/data"); //después lo borramos
 let bcrypt = require("bcryptjs");
-const { validationResult } = require("express-validator"); //pido las validaciones de la ruta
+const { validationResult, cookie } = require("express-validator"); //pido las validaciones de la ruta
 //se usa validationResult como palabra clave, no se puede poner otro nombre
 
 let userController = {
@@ -22,8 +22,9 @@ let userController = {
     return res.render("register", {});
   },
   iniciarSesion: function (req, res) {
-    //solo sirve para mostrar la vista
-    return res.render("login", {});
+    if (req.cookies.userLogueado != undefined){
+      res.send("No habilitado")
+    } else {return res.render("login", {})}
   },
   register: function (req, res) {
     
@@ -54,19 +55,19 @@ let userController = {
     db.Users.findOne({ where: { email: data.usuario } })
 
       .then(function (user) {
-        res.send(user);
         if (!user) {
           return res.send("No se encontró");
         }
 
         if (bcrypt.compareSync(data.contrasenia, user.contrasenia)) {
           if (req.body.recordarme != undefined && data.recordarme) {
-            res.cookie("user", user, { maxAge: 1000 * 60 * 500 });
+            res.cookie("userLogueado", user, { maxAge: 1000 * 60 * 500 });
           }
           return res.redirect("/");
         } else {
           return res.send("No coinciden contraseñas");
         }
+
       })
 
       .catch(function (error) {
