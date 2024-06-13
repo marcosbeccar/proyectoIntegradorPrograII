@@ -60,14 +60,16 @@ let userController = {
         }
 
         if (bcrypt.compareSync(data.contrasenia, user.contrasenia)) {
-          if (req.body.recordarme != undefined && data.recordarme) {
-            res.cookie("userLogueado", user, { maxAge: 1000 * 60 * 500 });
+          if (req.body.recordarme != undefined) {
+            res.cookie("userLogueado", user, { maxAge: 1000 * 60 * 500 });   
+          } else if (req.body.recordarme = 0) {
+            req.session.userSession = user
           }
           return res.redirect("/");
         } else {
           return res.send("No coinciden contraseñas");
         }
-
+      
       })
 
       .catch(function (error) {

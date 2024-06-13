@@ -33,6 +33,7 @@ app.use(session( {
 //una vez que tengo la session iniciada arriba, le mando todas las cookies juntas a las vistas:
 app.use(function(req, res, next){ 
   res.locals.cookies = req.cookies;
+  res.locals.userSession = req.session.userSession; 
   next(); //se usa next porque esto es middleware (código en app.js), si no lo ponés se rompe
 });
 //=============================================================================================
