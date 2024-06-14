@@ -45,9 +45,9 @@ let userController = {
   },
   register: function (req, res) {
     
-
     let errors = validationResult(req);
     if (errors.isEmpty()) { //una vez que no haya errores, mando los datos a la db
+
       let data = req.body;
       db.Users.create({
         email: data.email,
@@ -67,6 +67,10 @@ let userController = {
     }
   },
   login: function (req, res) {
+
+    let errors = validationResult(req);
+    if (errors.isEmpty()) { //una vez que no haya errores, mando los datos a la db
+
     let data = req.body;
 
     db.Users.findOne({ where: { email: data.usuario } })
@@ -91,7 +95,10 @@ let userController = {
 
       .catch(function (error) {
         console.log(error);
-      });
+      }) } else{
+        return res.render("login", {errors: errors.array(), old: req.body}); //en el caso de que haya errores, renderizo de nuevo la vista y los mando.
+                                    //se usa la propiedad errors y old (con old mando todos los datos que ingreso el usuario para que no los ponga de nuevo)
+    }
   },
 
   logout: function(req,res){
