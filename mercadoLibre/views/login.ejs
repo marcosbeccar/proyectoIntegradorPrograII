@@ -19,22 +19,12 @@
 		<h2>Login</h2>
 		<form action="/user/login" method="POST" id="registro-form"> <!--uso el mismo id que en register-->
 			<div id="separador">
-			<label for="usuario">Usuario (email):</label>
-			<input type="email" id="usuario" name="usuario" class="form-input" 
-				value ="<%= locals.old && old.email ? old.email : '' %>"><br>
-			<% if (locals.errors !== undefined && errors.email !== undefined) { %>
-				<p class="feedback"><%= errors.email.msg %></p>
-			<% } %>
-
-				
-				<!-- '?' es como un if, y ':' es como un else-->
+			<label for="usuario"> Email:</label>
+			<input type="email" id="usuario" name="usuario" class="form-input" >
 
 			<label for="contrasenia">Contraseña:</label>
-			<input type="password" id="contrasenia" name="contrasenia" class="form-input" 
-			value="<%= locals.old  && old.contrasenia ? old.contrasenia : "" %>">
-			<% if (locals.errors && errors.contrasenia) { %>
-				<p class="feedback"><%= errors.contrasenia.msg %></p>
-			<% } %>
+			<input type="password" id="contrasenia" name="contrasenia" class="form-input">
+
 
 			<label for="recordarme" ><input type="checkbox" id="recordarme" name="recordarme" class="form-checkbox">Recordarme</label>
 			</div>

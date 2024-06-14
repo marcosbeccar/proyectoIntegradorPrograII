@@ -16,7 +16,7 @@ let validationsRegister = [
     .withMessage("formato de email incorrecto") //verifica que sea un email válido
     .custom(function (value, { req }) {
       //Verifica que el email no exista previamente
-      return db.Users.findOne({
+      return db.User.findOne({
         where: { email: req.body.email }, //podríamos usar email:value, pero es más canchero así porque ya pedí el {req}
       }).then(function (user) {          //value anda igual porque es literalmente el email. lo del req se usa en otros casos
         if (user) {
@@ -31,30 +31,22 @@ let validationsRegister = [
 let validationsLogin = [
   body("email")
     .notEmpty()
-    .withMessage("campo email incompleto") //verifica que el campo no este vacío
+    .withMessage("Campo email incompleto") //verifica que el campo no este vacío
+    //.bail() // Detiene las validaciones si hay un error anterior
     .isEmail()
-    .withMessage("formato de email incorrecto") //verifica que sea un email válido
-    .custom(function (value, { req }) {
-      //Verifica que el email no exista previamente
-      return db.Users.findOne({
-        where: { email: req.body.email }, //podríamos usar email:value, pero es más canchero así porque ya pedí el {req}
-      }).then(function (user) {          //value anda igual porque es literalmente el email. lo del req se usa en otros casos
-        if (user) {
-          throw new Error("El email ingresado ya existe.");
-        }
-      });
-    }),
-  body("contrasenia").notEmpty().withMessage("campo contraseña incompleto"),
+    .withMessage("Formato de email incorrecto"), //verifica que sea un email válido
+  
+  body("contrasenia").notEmpty().withMessage("Campo contraseña incompleto"),
 ];
 let validationsEditProfile = [
   body("email")
     .notEmpty()
-    .withMessage("campo email incompleto") //verifica que el campo no este vacío
+    .withMessage("Campo email incompleto") //verifica que el campo no este vacío
     .isEmail()
-    .withMessage("formato de email incorrecto") //verifica que sea un email válido
+    .withMessage("Formato de email incorrecto") //verifica que sea un email válido
     .custom(function (value, { req }) {
       //Verifica que el email no exista previamente
-      return db.Users.findOne({
+      return db.User.findOne({
         where: { email: req.body.email }, //podríamos usar email:value, pero es más canchero así porque ya pedí el {req}
       }).then(function (user) {          //value anda igual porque es literalmente el email. lo del req se usa en otros casos
         if (user==user.email) {
@@ -64,7 +56,7 @@ let validationsEditProfile = [
         }
       });
     }),
-  body("usuario").notEmpty().withMessage("campo usuario incompleto"),
+  body("usuario").notEmpty().withMessage("Campo usuario incompleto"),
   
   body("nro_documento").notEmpty().withMessage("DNI incompleto").isLength({ max: 15 }).withMessage("El DNI debe tener como máximo 15 caracteres"),
 ];
