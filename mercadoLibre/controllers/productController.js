@@ -22,22 +22,22 @@ let productController={
             nombreUsuario: db1.usuario[1].email
         })
     },
-    resultadoBusqueda: function(req,res){
-        const query = req.query.q;
-        res.send(query)
 
+    resultadoBusqueda: function(req, res) {
+        const query = req.query.q;
+        
         if (!query) {
             return res.render('search-results', { productos: [], mensaje: "No hay resultados para su criterio de búsqueda" });
         }
 
-        db.Products.findAll({
+        db.Product.findAll({
             where: {
                 [db.Sequelize.Op.or]: [
-                    { nombreProducto: { [db.Sequelize.Op.like]: '%${query}%´' } },
-                    { descripcionProducto: { [db.Sequelize.Op.like]: '%${query}%' } }
+                    { nombreProducto: { [db.Sequelize.Op.like]: `%${query}%` } },
+                    { descripcionProducto: { [db.Sequelize.Op.like]: `%${query}%` } }
                 ]
             },
-            include: [{ model: db.Users, as: 'usuario' }],
+            include: [{ model: db.User, as: 'usuario' }],
             order: [['created_at', 'DESC']]
         })
         .then(productos => {

@@ -31,5 +31,16 @@ module.exports = (sequelize, dataTypes) => {
         underscored: true
     };
     let User = sequelize.define(alias, cols, config);
+
+    User.associate = function(models) {
+        User.hasMany(models.Product, {
+            foreignKey: 'id_usuario',
+            as: 'productos'
+        });
+    };
+
     return User;
 };
+
+
+
