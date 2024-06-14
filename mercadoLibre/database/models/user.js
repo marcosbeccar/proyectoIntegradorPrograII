@@ -1,28 +1,28 @@
-module.exports = (sequelize, dataTypes) => {
-    let alias = "Users";
+module.exports = function(sequelize, DataTypes) {
+    let alias = "User";
     let cols = {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER
         },
         email: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING
         },
         contrasenia: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING
         },
         fecha: {
-            type: dataTypes.DATE,
+            type: DataTypes.DATE
         },
         dni: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER
         },
         foto_perfil: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING
         },
-        usuario:{
-            type: dataTypes.STRING
+        usuario: {
+            type: DataTypes.STRING
         }
     };
     let config = {
@@ -41,6 +41,3 @@ module.exports = (sequelize, dataTypes) => {
 
     return User;
 };
-
-
-
