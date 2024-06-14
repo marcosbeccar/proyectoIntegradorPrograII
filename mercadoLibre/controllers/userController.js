@@ -24,7 +24,7 @@ let userController = {
     let errors = validationResult(req);
     if (errors.isEmpty()){
       let data=req.body;
-      db.Users.update({
+      db.User.update({
         email: data.email,
         //contrasenia: bcrypt.hashSync(data.contrasenia, 10),
         fecha: data.fecha_nacimiento,
@@ -49,7 +49,7 @@ let userController = {
     if (errors.isEmpty()) { //una vez que no haya errores, mando los datos a la db
 
       let data = req.body;
-      db.Users.create({
+      db.User.create({
         email: data.email,
         contrasenia: bcrypt.hashSync(data.contrasenia, 10),
         fecha: data.fecha_nacimiento,
@@ -73,7 +73,7 @@ let userController = {
 
     let data = req.body;
 
-    db.Users.findOne({ where: { email: data.usuario } })
+    db.User.findOne({ where: { email: data.usuario } })
 
       .then(function (user) {
         if (!user) {
