@@ -17,10 +17,21 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 		<h2>Login</h2>
+		<% if (locals.errors) { %> <!--Solo si errors existe (locals.errors=errors)-->
+			<% errors.forEach(error => { %>
+				<!--forEach es una especie de for loop, va a mostrar un <p> por error-->
+				<p class="mensajes-error">
+					<%= error.msg %>
+				</p>
+			<% }) %>
+		<% } %>
 		<form action="/user/login" method="POST" id="registro-form"> <!--uso el mismo id que en register-->
 			<div id="separador">
-			<label for="usuario"> Email:</label>
-			<input type="email" id="usuario" name="usuario" class="form-input" >
+			<label for="email"> Email:</label>
+			<input type="email" id="email" name="email" class="form-input" 
+				value="<%= locals.old && old.email ? old.email : '' %>"><br>
+                    <!-- '?' es como un if, y ':' es como un else-->
+
 
 			<label for="contrasenia">Contraseña:</label>
 			<input type="password" id="contrasenia" name="contrasenia" class="form-input">

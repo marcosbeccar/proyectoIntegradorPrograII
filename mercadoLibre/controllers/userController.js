@@ -73,7 +73,7 @@ let userController = {
 
     let data = req.body;
 
-    db.User.findOne({ where: { email: data.usuario } })
+    db.User.findOne({ where: { email: data.email } })
 
       .then(function (user) {
         if (!user) {
@@ -82,7 +82,8 @@ let userController = {
 
         if (bcrypt.compareSync(data.contrasenia, user.contrasenia)) {
           if (req.body.recordarme != undefined) {
-            res.cookie("userLogueado", user, { maxAge: 1000 * 60 * 500 });   
+            res.cookie("userLogueado", user, { maxAge: 1000 * 60 * 500 }); 
+            return res.redirect("/")  
           } else if (req.body.recordarme = 0) {
             req.session.userSession = user
           }

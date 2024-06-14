@@ -32,9 +32,9 @@ let validationsLogin = [
   body("email")
     .notEmpty()
     .withMessage("Campo email incompleto") //verifica que el campo no este vacío
-    //.bail() // Detiene las validaciones si hay un error anterior
+    .bail() // Detiene las validaciones si hay un error anterior
     .isEmail()
-    .withMessage("Formato de email incorrecto"), //verifica que sea un email válido
+    .withMessage("Ingrese un email correcto"), //verifica que sea un email válido
   
   body("contrasenia").notEmpty().withMessage("Campo contraseña incompleto"),
 ];
