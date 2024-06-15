@@ -1,5 +1,6 @@
 const db=require('../database/models/index')
 const db1=require('../db/data') //después lo borramos
+const data = require('../database/models/product')
 
 let productController={
     index:function(req,res){
@@ -22,7 +23,11 @@ let productController={
             nombreUsuario: db1.usuario[1].email
         })
     },
-
+    productoAgregado:function(req, res){
+        return res.render('product-add',{
+            data: data // NO SE QUE HACER ACAAAAA
+        })
+    },
     resultadoBusqueda: function(req, res) {
         const query = req.query.q;
         
