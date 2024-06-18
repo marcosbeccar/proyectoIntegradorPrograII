@@ -1,5 +1,5 @@
 module.exports = function(sequelize, dataTypes) {
-    let alias = "Comments";
+    let alias = "Comment";
     let cols = {
         id: {
             autoIncrement: true,
@@ -22,5 +22,22 @@ module.exports = function(sequelize, dataTypes) {
         underscored: true
     };
     let Comment = sequelize.define(alias, cols, config);
+
+    //Asociaciones
+
+    Comment.associate = function(models) {
+        // Asociación con Productos
+        Comment.belongsTo(models.Product, {
+            foreignKey: 'id_producto',
+            as: 'producto'
+        });
+
+        // Asociación con Usuarios
+        Comment.belongsTo(models.User, {
+            foreignKey: 'id_usuario',
+            as: 'usuario'
+        });
+    };
+
     return Comment;
 };

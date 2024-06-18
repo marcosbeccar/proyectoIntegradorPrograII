@@ -22,12 +22,12 @@
                 <% productos.forEach(producto => { %>
                     <div class="col-12 col-md-4">
                         <div class="product-card">
-                            <a href="/productos/detalleProducto?id=<%= producto.id %>">
+                            <a href="/product/detalleProducto?id=<%= producto.id %>">
                                 <img src="<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>">
                                 <h3><%= producto.nombreProducto %></h3>
                             </a>
                             <p><%= producto.descripcionProducto %></p>
-                            <p>Publicado por: <a href="/user/perfil?id=<%= producto.usuario.id %>"><%= producto.usuario.email %></a></p>
+                            <p>Publicado por: <a href="/user?id=<%= producto.usuario.id %>"><%= producto.usuario.email %></a></p>
                         </div>
                     </div>
                 <% }); %>

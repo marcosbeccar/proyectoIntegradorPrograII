@@ -1,6 +1,6 @@
 const db=require('../database/models/index')
 const db1=require('../db/data') //después lo borramos
-const data = require('../database/models/product')
+const data = require('../database/models')
 
 let productController={
     index:function(req,res){
@@ -14,9 +14,39 @@ let productController={
         })
     },
     detalleProducto:function(req,res){
-        return res.render('product-detail',{
-            data: db1.productos
-        })
+        const productId = req.query.id;
+
+        db.Product.findByPk(productId, {
+                include: [{
+                    model: db.User,
+                    as: 'usuario'
+                }, {
+                    model: db.Comment, // Incluye el modelo de comentarios
+                    as: 'comentarios', // Utiliza el alias que definiste en la asociación del modelo de productos
+                    include: [{
+                        model: db.User,
+                        as: 'usuario' // Incluye el usuario asociado a cada comentario
+                    }]
+                }]
+            })
+            .then(producto => {
+                if (!producto) {
+                    return res.render('error', {
+                        message: 'Producto no encontrado'
+                    });
+                } else {
+                    res.render('product-detail', {
+                        producto
+                    });
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                res.status(500).send('Error interno del servidor');
+            });
+  
+
+
     },
     agregarProducto:function(req,res){
         return res.render('product-add',{

@@ -29,12 +29,18 @@ module.exports = function(sequelize, DataTypes) {
     };
     let Product = sequelize.define(alias, cols, config);
 
+    //Asociaciones
     Product.associate = function(models) {
         Product.belongsTo(models.User, {
             foreignKey: 'id_usuario',
             as: 'usuario'
         });
+        Product.hasMany(models.Comment, {
+            foreignKey: 'id_producto',
+            as: 'comentarios'
+        });
     };
+
 
     return Product;
 };

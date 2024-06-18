@@ -63,7 +63,7 @@ let validationsEditProfile = [
 
 //============  Rutas  ============//
 
-router.get("/", userController.perfil);
+router.get("/:id", userController.perfil);
 router.get("/editarPerfil", userController.editarPerfil);
 router.post('/editarPerfilSend', validationsEditProfile, userController.profileEdit)
 router.get("/registrarse", userController.registrarse); //mostrar el formulario

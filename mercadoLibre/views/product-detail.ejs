@@ -3,67 +3,54 @@
 <!-- Include Head -->
 <%- include ('./partials/head') %>
 <body>
-	<!-- Header -->
-	<%- include ('./partials/header') %>
-	<!-- /Header -->
+    <!-- Header -->
+    <%- include ('./partials/header') %>
+    <!-- /Header -->
 
-	<!-- product detail -->
-	<div class="container products-wrapper">
-		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
-			<p class="product-detail-description">
-				<a href="http://localhost:3000/product/agregarProducto">Editar</a>
-			</p>
-		</div>
-		<div class="product-detail">
-			<div class="row">
-				<article class="col-12 col-lg-8 product-detail-info">
-					<img src=<%= data[5].rutaImagen %> alt="" class="product-detail-img">
-					<p class="product-detail-description">
-						Descripción corta: Producto cosmético que se aplica sobre los labios para darles un brillo luminoso y un aspecto jugoso.</p>
-				</article>
-				<div class="col-12 col-lg-4">
-					<section class="comments">
-						<article>
-							<img src= <%= data[0].comentarios[0].imagenPerfil %>>
-							<div class="data">
-								<p class="user">
-								<strong> <a href="http://localhost:3000/user"> <%= data[0].comentarios[0].nombreUsuario %> </a> </strong>
-								<%= data[0].comentarios[0].textoComentario %></p>
-							</div>
-						</article>
-						<article>
-							<img src=<%= data[0].comentarios[1].imagenPerfil %> alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="http://localhost:3000/user"> <%= data[0].comentarios[1].nombreUsuario %> </a> </strong>
-								<%= data[0].comentarios[1].textoComentario %></p>
-							</div>
-						</article>
-						<article>
-							<img src=<%= data[0].comentarios[2].imagenPerfil %> alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="http://localhost:3000/user"> <%= data[0].comentarios[2].nombreUsuario %> </a> </strong>
-								<%= data[0].comentarios[2].textoComentario %></p>
-							</div>
-						</article>
+    <!-- product detail -->
+    <div class="container products-wrapper">
+        <div class="d-flex align-items-center">
+            <h2 class="products-title"><%= producto.nombreProducto %></h2>
+            <p class="product-detail-description">
+                <a href="http://localhost:3000/product/agregarProducto">Editar</a>
+            </p>
+        </div>
+        <div class="product-detail">
+            <div class="row">
+                <article class="col-12 col-lg-8 product-detail-info">
+                    <img src="<%= producto.rutaImagen %>" alt="" class="product-detail-img">
+                    <p class="product-detail-description">
+                        <%= producto.descripcionProducto %>
+                    </p>
+                </article>
+                <div class="col-12 col-lg-4">
+                    <section class="comments">
+                        <% producto.comentarios.forEach(comentario => { %>
+                            <article>
+                                <img src="<%= comentario.usuario.foto_perfil %>">
+                                <div class="data">
+                                    <p class="user">
+                                        <strong> <a href="http://localhost:3000/user/<%= comentario.usuario.id %>"><%= comentario.usuario.usuario %> </a> </strong>
+                                        <%= comentario.comentario %>
+                                    </p>
+                                </div>
+                            </article>
+                        <% }); %>
+                    </section>
+                    <form class="form" action="" method="get">
+                        <input class="form-input" type="text" value="" placeholder="Agregar comentario">
+                        <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+                    </form>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /product detail -->
 
-					</section>
-					<form class="form" action="" method="get">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
-					<hr>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /product detail -->
+    <!-- footer -->
+    <%- include ('./partials/footer') %>
+    <!-- /footer -->
 
-	<!-- footer -->
-	<%- include ('./partials/footer') %>
-	<!-- /footer -->
-
-</body>	
+</body>
 </html>
