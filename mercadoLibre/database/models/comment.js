@@ -9,7 +9,7 @@ module.exports = function(sequelize, dataTypes) {
         id_usuario: {
             type: dataTypes.INTEGER,
         },
-        id_producto: {
+        id_productos: {
             type: dataTypes.INTEGER,
         },
         comentario: {
@@ -28,7 +28,7 @@ module.exports = function(sequelize, dataTypes) {
     Comment.associate = function(models) {
         // Asociación con Productos
         Comment.belongsTo(models.Product, {
-            foreignKey: 'id_producto',
+            foreignKey: 'id_productos',
             as: 'producto'
         });
 
