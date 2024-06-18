@@ -15,6 +15,7 @@ module.exports = function(sequelize, dataTypes) {
         comentario: {
             type: dataTypes.STRING,
         }
+        
     };
     let config = {
         tableName: "tabla_comentarios",

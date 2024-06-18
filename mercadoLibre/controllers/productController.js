@@ -4,9 +4,25 @@ const data = require('../database/models')
 
 let productController={
     index:function(req,res){
-        return res.render('index',{
-            data: db1.productos
+        //return res.render('index',{
+        //    data: db1.productos
+        //})
+        db.Product.findAll({
+            order: [['createdAt', 'DESC']], // Ordena por fecha de creación de forma descendente
+            limit: 12, // Limita a los 10 productos más recientes
+            include: [{ model: db.User, as: 'usuario' }] // Incluye la información del usuario que publicó el producto
         })
+        .then(productos => {
+            res.render('index', {
+                productos // Pasa los productos a la vista
+            });
+        })
+        .catch(error => {
+            console.error(error);
+            res.status(500).send('Error interno del servidor');
+        });
+    
+
     },
     productos:function(req,res){
        return res.render('product',{
