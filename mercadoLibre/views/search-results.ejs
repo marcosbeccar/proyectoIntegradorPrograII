@@ -27,7 +27,7 @@
                                 <h3><%= producto.nombreProducto %></h3>
                             </a>
                             <p><%= producto.descripcionProducto %></p>
-                            <p>Publicado por: <a href="/user?id=<%= producto.usuario.id %>"><%= producto.usuario.email %></a></p>
+                            <p>Publicado por: <a href="/user?id=<%= producto.usuario.id %>"><%= producto.usuario.usuario %></a></p>
                         </div>
                     </div>
                 <% }); %>
