@@ -54,13 +54,16 @@ function isLoggedIn(req, res, next) {
   res.redirect('/user/iniciarSesion');
 }
 
-router.get("/:id", userController.perfil);
-router.get("/:id/editarPerfil", isLoggedIn, userController.editarPerfil);
-router.post("/:id/editarPerfilSend", isLoggedIn, validationsEditProfile, userController.profileEdit);
-router.get("/registrarse", userController.registrarse);
-router.post("/newUser", validationsRegister, userController.register);
-router.get("/iniciarSesion", userController.iniciarSesion);
-router.post("/login", validationsLogin, userController.login);
-router.post("/logout", userController.logout);
+// Rutas
+router.get("/registrarse", userController.registrarse); // Mostrar el formulario de registro
+router.post("/newUser", validationsRegister, userController.register); // Recibe el formulario de registro
+router.get("/iniciarSesion", userController.iniciarSesion); // Mostrar el formulario de login
+router.post("/login", validationsLogin, userController.login); // Recibe el formulario de login
+router.post("/logout", userController.logout); // Logout
+//Rutas que dependen de algo (van a lo último porque sino se confunde el id con otra cosa)
+router.get("/:id", userController.perfil); // Perfil de usuario
+router.get("/editarPerfil/:id", userController.editarPerfil); // Formulario para editar perfil
+router.post("/editarPerfil/:id", validationsEditProfile, userController.profileEdit); // Recibe el formulario de edición de perfil
+
 
 module.exports = router;

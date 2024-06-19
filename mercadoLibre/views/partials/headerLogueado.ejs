@@ -33,11 +33,8 @@
             </ul>
 
             <ul class="right-navbar">
-                <li> 
-                    <p> Hola</p>
-                </li>
-                <li><a href="http://localhost:3000/user">
-                        <%= cookies.userLogueado.usuario %> <i class="fas fa-user"></i> 
+                <li><a href="http://localhost:3000/user/<%= cookies.userLogueado.id %>">
+                        Hola <%= cookies.userLogueado.usuario %>! <i class="fas fa-user"></i> 
                     </a>
 
                 </li>
