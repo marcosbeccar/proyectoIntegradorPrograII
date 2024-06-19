@@ -3,43 +3,58 @@
 <!-- Include Head -->
 <%- include ('./partials/head') %>
 <body>
-	<!-- Header -->
-	<%- include ('./partials/headerLogueado') %>
-	<!-- /Header -->
+    <!-- Header -->
+    <%- include ('./partials/headerLogueado') %>
+    <!-- /Header -->
 
-	<!-- Datos del usuario -->
-	<section class="info-usuario container products-wrapper">
-		<div class="row">
-			<div class="img-container offset-3 col-2">
-				<img src='../public/images/<%= foto_perfil %>' alt="foto de perfil" class="foto-perfil">
-			</div>
-			<div class="data-container col-6">
-				<div class="d-flex align-items-center ">
-					<h1 class="main-title">
-						<%= usuario %> 
-						<a href="http://localhost:3000/user/editarPerfil">
-							<i class="fas fa-cog"></i>
-						</a>
-					</h1>
-					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
-				</div>
-				<div>
-					<ul class="">
-						<li>8 productos</li>
-						<li>200 seguidores</li>
-						<li>300 comentarios</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- /Datos del usuario -->
+    <!-- Datos del usuario -->
+    <section class="info-usuario container products-wrapper">
+        <div class="row">
+            <div class="img-container offset-3 col-2">
+                <img src='/images/<%= foto_perfil %>' alt="foto de perfil" class="foto-perfil">
+            </div>
+            <div class="data-container col-6">
+                <div class="d-flex align-items-center ">
+                    <h1 class="main-title">
+                        <%= usuario %> 
+                        <a href="http://localhost:3000/user/editarPerfil/<%=id%>">
+                            <i class="fas fa-cog"></i>
+                        </a>
+                    </h1>
+                    <a class="btn mt-3 ml-4" href="">SEGUIR</a>
+                </div>
+                <div>
+                    <ul class="">
+                        <li><%= totalProductos %> productos</li>
+                        <li>200 seguidores</li>
+                        <li>300 comentarios</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Datos del usuario -->
 
+    <!-- Productos del usuario -->
+    <section class="container products-wrapper">
+        <div class="row">
+            <% productos.forEach(producto => { %>
+                <div class="col-12 col-md-4">
+                    <div class="product-box">
+                        <a href="/product/detalleProducto/<%= producto.id %>">
+                            <img src="<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>">
+                            <h3><%= producto.nombreProducto %></h3>
+                        </a>
+                        <p><%= producto.descripcionProducto %></p>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+    <!-- /Productos del usuario -->
 
-	
-
-	<!-- footer -->
-	<%- include ('./partials/footer') %>
-	<!-- /footer -->
-</body>	
+    <!-- footer -->
+    <%- include ('./partials/footer') %>
+    <!-- /footer -->
+</body>
 </html>

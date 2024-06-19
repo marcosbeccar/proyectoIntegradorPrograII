@@ -8,24 +8,36 @@ let userController = {
   perfil: function (req, res) {
     const userId = req.params.id;
   
-    db.User.findByPk(userId)
-      .then(user => {
+    db.User.findByPk(userId, {
+        include: [{
+            model: db.Product,  //le digo de que modelo sacar la asociación
+            as: 'productos', // ahora 'productos' son los productos que coincidan con el usuario buscado
+            order: [['createdAt', 'DESC']] // Ordena cronológicamente
+        }]
+    })
+    .then(user => {
         if (!user) {
-          return res.status(404).send("Usuario no encontrado");
+            return res.status(404).send("Usuario no encontrado");
         }
-  
+
+        const productos = user.productos; //acá uso el nombre que le puse en el as:
+        const totalProductos = productos.length;
+
         return res.render("profile", {
-          usuario: user.usuario,
-          foto_perfil: user.foto_perfil,
-          email: user.email,
-          data: db.productos
+            usuario: user.usuario,
+            foto_perfil: user.foto_perfil,
+            email: user.email,
+            productos: productos,
+            totalProductos: totalProductos,
+            id: user.id
         });
-      })
-      .catch(err => {
+    })
+    .catch(err => {
         console.log(err);
         res.status(500).send("Error interno del servidor");
-      });
-  },
+    });
+},
+
   
   editarPerfil: function (req, res) {
     const userId = req.params.id;
