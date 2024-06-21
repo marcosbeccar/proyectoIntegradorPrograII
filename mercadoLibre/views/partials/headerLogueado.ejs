@@ -33,11 +33,19 @@
             </ul>
 
             <ul class="right-navbar">
-                <li><a href="http://localhost:3000/user/<%= cookies.userLogueado.id %>">
-                        Hola <%= cookies.userLogueado.usuario %>! <i class="fas fa-user"></i> 
-                    </a>
-
+                
+                <li>
+                    <% if (locals.cookies.userLogueado) { %>
+                        <a href="http://localhost:3000/user/<%= locals.cookies.userLogueado.id %>">
+                            Hola <%= locals.cookies.userLogueado.usuario %>! <i class="fas fa-user"></i> 
+                        </a>
+                    <% } else if (locals.userSession) { %>
+                        <a href="http://localhost:3000/user/<%= locals.userSession.id %>">
+                            Hola <%= locals.userSession.usuario %>! <i class="fas fa-user"></i> 
+                        </a>
+                    <% } %>
                 </li>
+                
                 <li>
                     <form action="/user/logout" method="post">
                         <button class="logout" type="submit">

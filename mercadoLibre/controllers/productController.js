@@ -74,6 +74,7 @@ let productController={
         let form = req.body;
 
         db.Product.create({
+        //id_usuario: form.
         rutaImagen: form.rutaImagen,
         nombreProducto: form.nombreProducto,
         descripcionProducto: form.descripcionProducto,

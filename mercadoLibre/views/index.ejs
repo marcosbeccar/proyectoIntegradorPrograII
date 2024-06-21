@@ -4,7 +4,7 @@
 <%- include ('./partials/head') %>
 <body>
 	<!-- Header -->
-	<% if (cookies.userLogueado !== undefined ) { %>
+	<% if (cookies.userLogueado !== undefined || locals.userSession !== undefined) { %>
 		<%- include('./partials/headerLogueado') %>
 	<% } else { %>
 		<%- include('./partials/header') %>

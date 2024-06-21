@@ -164,10 +164,14 @@ let userController = {
   },
   
 
-  logout: function(req,res){
-    req.session.user=null;
-    res.clearCookie("userLogueado"); // Borra la cookie de usuario logueado
-    res.redirect("/"); // Redirige a la página principal u otra página de tu elección
+  logout: function(req, res) {
+    req.session.destroy(function(err) {
+        if (err) {
+            console.log(err);
+        }
+        res.clearCookie("userLogueado"); // Borra la cookie de usuario logueado
+        res.redirect("/"); // Redirige a la página principal
+    });
   }
 
 }
