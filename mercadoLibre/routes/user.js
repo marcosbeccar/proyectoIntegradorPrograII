@@ -7,8 +7,8 @@ const db = require("../database/models");
 //Validaciones
 let validationsRegister = [
   body("email")
-    .notEmpty().withMessage("campo email incompleto")
-    .isEmail().withMessage("formato de email incorrecto")
+    .notEmpty().withMessage("Campo email incompleto")
+    .isEmail().withMessage("Formato de email incorrecto")
     .custom(function (value, { req }) {
       return db.User.findOne({
         where: { email: req.body.email }
@@ -18,8 +18,8 @@ let validationsRegister = [
         }
       });
     }),
-  body("usuario").notEmpty().withMessage("campo usuario incompleto"),
-  body("contrasenia").notEmpty().withMessage("campo contraseña incompleto"),
+  body("usuario").notEmpty().withMessage("Campo usuario incompleto"),
+  body("contrasenia").notEmpty().withMessage("Campo contraseña incompleto"),
   body("nro_documento").notEmpty().withMessage("DNI incompleto").isLength({ max: 15 }).withMessage("El DNI debe tener como máximo 15 caracteres"),
 ];
 

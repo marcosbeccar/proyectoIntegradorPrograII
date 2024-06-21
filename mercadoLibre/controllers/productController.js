@@ -1,6 +1,5 @@
-const db=require('../database/models/index')
+const db=require('../database/models')
 const db1=require('../db/data') //después lo borramos
-const data = require('../database/models')
 
 let productController={
     index:function(req,res){
@@ -64,16 +63,19 @@ let productController={
 
 
     },
+
     agregarProducto:function(req,res){
         return res.render('product-add',{
             nombreUsuario: db1.usuario[1].email
         })
     },
+    
     productoAgregado:function(req, res){
         return res.render('product-add',{
             data: data // NO SE QUE HACER ACAAAAA
         })
     },
+
     resultadoBusqueda: function(req, res) {
         const query = req.query.q; //Extrae el valor del parámetro de consulta q de la solicitud HTTP y lo guarda en la variable query.
         

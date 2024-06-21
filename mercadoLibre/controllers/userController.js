@@ -103,15 +103,18 @@ let userController = {
   
   registrarse: function (req, res) {
     //solo sirve para mostrar la vista
-    return res.render("register", {});
+    if (req.cookies.userLogueado) {
+      return res.status(404).send("Ya estas registrado");
+    } else {return res.render("register", {})}
   },
+  
   iniciarSesion: function (req, res) {
-    if (req.cookies.userLogueado != undefined){
-      res.send("No habilitado")
+    if (req.cookies.userLogueado){
+      return res.status(404).send("Ya iniciaste sesión");
     } else {return res.render("login", {})}
   },
+
   register: function (req, res) {
-    
     let errors = validationResult(req);
     if (errors.isEmpty()) { //una vez que no haya errores, mando los datos a la db
 
