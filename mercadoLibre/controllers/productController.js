@@ -3,9 +3,7 @@ const db1=require('../db/data') //después lo borramos
 
 let productController={
     index:function(req,res){
-        //return res.render('index',{
-        //    data: db1.productos
-        //})
+        
         db.Product.findAll({
             order: [['createdAt', 'DESC']], // Ordena por fecha de creación de forma descendente
             limit: 12, // Limita a los 10 productos más recientes
