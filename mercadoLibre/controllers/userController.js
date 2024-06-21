@@ -49,21 +49,22 @@ let userController = {
   
     if (!req.cookies.userLogueado || req.cookies.userLogueado.id !== parseInt(userId, 10)) {
       return res.status(403).send("No tienes permiso para editar este perfil");
-    }
+    }//chequear si realmente es el usuario dueño de la cuenta (si existe la cookie)
   
     db.User.findByPk(userId)
       .then(user => {
         if (!user) {
-          return res.status(404).send("Usuario no encontrado");
+          return res.status(404).send("El usuario no existe o no fue encontrado");
         }
   
         return res.render("profile-edit", {
-          nombreUsuario: user.email,
+          email: user.email,
           usuario: user.usuario,
           foto_perfil: user.foto_perfil,
           email: user.email,
           dni: user.dni,
-          fecha: user.fecha
+          fecha: user.fecha,
+          id:userId
         });
       })
       .catch(err => {
@@ -75,10 +76,6 @@ let userController = {
   profileEdit: function (req, res) {
     let errors = validationResult(req);
     const userId = req.params.id;
-  
-    if (!req.cookies.userLogueado || req.cookies.userLogueado.id !== parseInt(userId, 10)) {
-      return res.status(403).send("No tienes permiso para editar este perfil");
-    }
   
     if (errors.isEmpty()) {
       let data = req.body;
