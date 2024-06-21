@@ -6,8 +6,9 @@ const { validationResult, cookie } = require("express-validator"); //pido las va
 
 let userController = {
   perfil: function (req, res) {
-    const userId = req.params.id;
+    const userId = req.params.id; // accede al valor del parámetro id especificado en la URL.
   
+    //Consulta en la base de datos:
     db.User.findByPk(userId, {
         include: [{
             model: db.Product,  //le digo de que modelo sacar la asociación
@@ -15,6 +16,9 @@ let userController = {
             order: [['createdAt', 'DESC']] // Ordena cronológicamente
         }]
     })
+
+    //El resultado de la consulta se pasa a la función .then(), 
+    //donde user es la variable que contiene este resultado
     .then(user => {
         if (!user) {
             return res.status(404).send("Usuario no encontrado");
@@ -23,6 +27,7 @@ let userController = {
         const productos = user.productos; //acá uso el nombre que le puse en el as:
         const totalProductos = productos.length;
 
+        //Los detalles del usuario y los productos asociados se pasan a la vista profile para renderizar
         return res.render("profile", {
             usuario: user.usuario,
             foto_perfil: user.foto_perfil,

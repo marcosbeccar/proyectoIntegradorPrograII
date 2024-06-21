@@ -4,6 +4,7 @@ const userController = require("../controllers/userController");
 const { body } = require("express-validator");
 const db = require("../database/models");
 
+//Validaciones
 let validationsRegister = [
   body("email")
     .notEmpty().withMessage("campo email incompleto")
