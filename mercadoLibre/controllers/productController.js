@@ -1,5 +1,7 @@
 const db=require('../database/models')
 const db1=require('../db/data') //después lo borramos
+const { validationResult, cookie } = require("express-validator"); //pido las validaciones de la ruta
+//se usa validationResult como palabra clave, no se puede poner otro nombre
 
 let productController={
     index:function(req,res){
@@ -63,16 +65,33 @@ let productController={
     },
 
     agregarProducto:function(req,res){
-        return res.render('product-add',{
-            nombreUsuario: db1.usuario[1].email
-        })
+        return res.render('product-add',{})
     },
-    
+
     productoAgregado:function(req, res){
-        return res.render('product-add',{
-            data: data // NO SE QUE HACER ACAAAAA
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+        let form = req.body;
+
+        db.Product.create({
+        rutaImagen: form.rutaImagen,
+        nombreProducto: form.nombreProducto,
+        descripcionProducto: form.descripcionProducto,
+        created_at: new Date(),
+        updated_at: new Date()
         })
-    },
+        .then(function(result) {
+            return res.redirect("/product"); // Redirige a la página de productos después de agregar un producto
+        })
+        .catch(function(error) {
+            console.log(error); 
+            return res.status(500).send("Hubo un error al agregar el producto"); // Envía una respuesta de error al cliente
+        });
+        } else {
+            return res.render("product-add", { errors: errors.array(), old: req.body });
+        }
+  },
+
 
     resultadoBusqueda: function(req, res) {
         const query = req.query.q; //Extrae el valor del parámetro de consulta q de la solicitud HTTP y lo guarda en la variable query.

@@ -15,11 +15,19 @@
 			<div class="col-12">
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
+			<% if (locals.errors) { %> <!--Solo si errors existe (locals.errors=errors)-->
+                <% errors.forEach(error => { %>
+                    <!--forEach es una especie de for loop, va a mostrar un <p> por error-->
+                    <p class="mensajes-error">
+                        <%= error.msg %>
+                    </p>
+                <% }) %>
+            <% } %>
 			<!-- Show the "ultimos" products -->
-			<form action="" method="GET" id="registro-form"> <!-- Para evitar que se rompa, dejamos vacío el action -->
+			<form action="" method="POST" id="registro-form"> <!-- Para evitar que se rompa, dejamos vacío el action -->
 				<div id="separador">
-				<label for="foto_perfil">Imagen:</label>
-				<input type="file" id="foto_perfil" name="foto_perfil" class="form-input"><br>
+				<label for="rutaImagen">Imagen:</label>
+				<input type="file" id="rutaImagen" name="rutaImagen" class="form-input"><br>
 
 				<label for="nombreProducto"> Nombre del producto:</label>
 				<input type="text" id="nombreProducto" name="nombreProducto" class="form-input"><br>
