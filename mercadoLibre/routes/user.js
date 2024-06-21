@@ -64,7 +64,7 @@ router.post("/logout", userController.logout); // Logout
 //Rutas que dependen de algo (van a lo último porque sino se confunde el id con otra cosa)
 router.get("/:id", userController.perfil); // Perfil de usuario
 router.get("/editarPerfil/:id", userController.editarPerfil); // Formulario para editar perfil
-router.post("/editarPerfil/:id", validationsEditProfile, userController.profileEdit); // Recibe el formulario de edición de perfil
+router.post("/editarPerfilSend/:id", validationsEditProfile, userController.profileEdit); // Recibe el formulario de edición de perfil
 
 
 module.exports = router;
