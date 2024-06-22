@@ -15,36 +15,39 @@
 			<div class="col-12">
 				<h2 class="products-title">Editar mi perfil</h2>
 			</div>
+            <% if (locals.errors) { %> <!--Solo si errors existe (locals.errors=errors)-->
+                <% errors.forEach(error => { %>
+                    <!--forEach es una especie de for loop, va a mostrar un <p> por error-->
+                    <p class="mensajes-error">
+                        <%= error.msg %>
+                    </p>
+                <% }) %>
+            <% } %>
 			<!-- Show the "ultimos" products -->
-			<form action="/user/editarPerfilSend/<%= id %>" method="post" id="registro-form">
+			<form action='/user/editarPerfilSend/<%= id %>' method="post" id="registro-form">
                 <div id="separador">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" class="form-input"
-                        value="<%= locals.old && old.email ? old.email : email %>"><br>
-                    <!-- '?' es como un if, y ':' es como un else-->
+                    <input type="email" id="email" name="email" class="form-input" value="<%= email %>"><br>
 
                     <label for="usuario">Usuario:</label>
-                    <input type="text" id="usuario" name="usuario" class="form-input"
-                        value="<%= locals.old && old.usuario ? old.usuario : usuario %>"><br>
+                    <input type="text" id="usuario" name="usuario" class="form-input" value="<%= usuario %>"><br>
 
                     <label for="contrasenia">Contraseña:</label>
                     <input type="password" id="contrasenia" name="contrasenia" class="form-input"><br>
 
                     <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-input"
-                        value="<%= locals.old && old.fecha_nacimiento ? old.fecha_nacimiento : fecha %>"><br>
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-input" value="<%= fecha %>"><br>
 
-                    <label for="nro_documento">Número de documento:</label>
-                    <input type="number" id="nro_documento" name="nro_documento" class="form-input"
-                        value="<%= locals.old && old.nro_documento ? old.nro_documento : dni %>"><br>
+                    <label for="dni">Número de documento:</label>
+                    <input type="number" id="dni" name="dni" class="form-input" value="<%= dni %>"><br>
 
                     <label for="foto_perfil">Foto de perfil:</label>
-                    <input type="text" id="foto_perfil" name="foto_perfil" class="form-input"
-                        value="<%= locals.old && old.foto_perfil ? old.foto_perfil : foto_perfil %>"><br>
+                    <input type="text" id="foto_perfil" name="foto_perfil" class="form-input" value="<%= foto_perfil %>"><br>
                 </div>
                 <button type="submit" id="submit-btn">Enviar</button>
             </form>
-
+        </div>
+    </div>
 
 	<!-- footer -->
 	<%- include ('./partials/footer') %>

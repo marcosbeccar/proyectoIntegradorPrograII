@@ -20,7 +20,7 @@ let validationsRegister = [
     }),
   body("usuario").notEmpty().withMessage("Campo usuario incompleto"),
   body("contrasenia").notEmpty().withMessage("Campo contraseña incompleto"),
-  body("nro_documento").notEmpty().withMessage("DNI incompleto").isLength({ max: 15 }).withMessage("El DNI debe tener como máximo 15 caracteres"),
+  body("nro_documento").notEmpty().withMessage("DNI incompleto").isLength({ max: 8 }).withMessage("El DNI debe tener como máximo 15 caracteres"),
 ];
 
 let validationsLogin = [
@@ -33,19 +33,26 @@ let validationsLogin = [
 
 let validationsEditProfile = [
   body("email")
-    .notEmpty().withMessage("Campo email incompleto")
-    .isEmail().withMessage("Formato de email incorrecto")
-    .custom(function (value, { req }) {
-      return db.User.findOne({
-        where: { email: req.body.email }
-      }).then(function (user) {
-        if (user && user.email !== req.body.originalEmail) {
-          throw new Error("El email ingresado ya existe.");
+  .notEmpty().withMessage("Campo email incompleto")
+  .isEmail().withMessage("Formato de email incorrecto")
+  .custom(function (value, { req }) {
+    return db.User.findByPk(req.params.id)
+      .then(function (currentUser) {
+        if (currentUser && value !== currentUser.email) {
+          return db.User.findOne({
+            where: { email: value }
+          }).then(function (otroUsuarioConElMismoEmail) {
+            if (otroUsuarioConElMismoEmail) {
+              throw new Error("El email ingresado ya existe.");
+            }
+          });
         }
       });
-    }),
+  }),
+
   body("usuario").notEmpty().withMessage("Campo usuario incompleto"),
-  body("nro_documento").notEmpty().withMessage("DNI incompleto").isLength({ max: 15 }).withMessage("El DNI debe tener como máximo 15 caracteres"),
+  body("dni").notEmpty().withMessage("Campo DNI incompleto").isLength({ max: 8 }).withMessage("El DNI debe tener como máximo 15 caracteres"),
+  body("foto_perfil").notEmpty().withMessage('Campo foto de perfil incompleto')
 ];
 
 function isLoggedIn(req, res, next) {

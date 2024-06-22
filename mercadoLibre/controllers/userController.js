@@ -44,60 +44,111 @@ let userController = {
 },
 
   
-  editarPerfil: function (req, res) {
-    const userId = req.params.id;
-  
-    if (!req.cookies.userLogueado || req.cookies.userLogueado.id !== parseInt(userId, 10)) {
-      return res.status(403).send("No tienes permiso para editar este perfil");
-    }//chequear si realmente es el usuario dueño de la cuenta (si existe la cookie)
-  
+editarPerfil: function (req, res) {
+  const userId = req.params.id;
+
+  if (!req.cookies.userLogueado || req.cookies.userLogueado.id !== parseInt(userId, 10)) {
+    return res.status(403).send("No tienes permiso para editar este perfil");
+  }
+
+  db.User.findByPk(userId)
+    .then(user => {
+      if (!user) {
+        return res.status(404).send("El usuario no existe o no fue encontrado");
+      }
+      
+      return res.render("profile-edit", {
+        id: user.id,
+        email: user.email,
+        usuario: user.usuario,
+        foto_perfil: user.foto_perfil,
+        dni: user.dni,
+        fecha: user.fecha,
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).send("Error interno del servidor");
+    });
+},
+
+profileEdit: function (req, res) {
+  let errors = validationResult(req);
+  const userId = req.params.id;
+
+  // Verificar si hay errores de validación en los datos del formulario
+  if (!errors.isEmpty()) {
+    // Si hay errores, buscar al usuario por su ID para obtener los datos originales
     db.User.findByPk(userId)
       .then(user => {
         if (!user) {
           return res.status(404).send("El usuario no existe o no fue encontrado");
         }
-  
+
+        // Renderizar nuevamente el formulario de edición con los errores y los datos originales
         return res.render("profile-edit", {
+          id: user.id,
+          errors: errors.array(),
           email: user.email,
           usuario: user.usuario,
           foto_perfil: user.foto_perfil,
-          email: user.email,
           dni: user.dni,
-          fecha: user.fecha,
-          id:userId
+          fecha: user.fecha
         });
       })
       .catch(err => {
         console.log(err);
         res.status(500).send("Error interno del servidor");
       });
-  },
-  
-  profileEdit: function (req, res) {
-    let errors = validationResult(req);
-    const userId = req.params.id;
-  
-    if (errors.isEmpty()) {
-      let data = req.body;
-      db.User.update({
-        email: data.email,
-        fecha: data.fecha_nacimiento,
-        dni: data.nro_documento,
-        foto_perfil: data.foto_perfil,
-        usuario: data.usuario,
-      }, {
+  } else {
+    // Si no hay errores, actualizar los datos del usuario en la base de datos
+    let data = req.body;
+    let valores = {
+      email: data.email,
+      fecha: data.fecha_nacimiento,
+      dni: data.dni,
+      foto_perfil: data.foto_perfil,
+      usuario: data.usuario,
+    };
+
+    // Verificar si se ha ingresado una nueva contraseña
+    if (data.contrasenia) {
+      // Hashear la nueva contraseña antes de almacenarla
+      bcrypt.hash(data.contrasenia, 10)
+        .then(hashedPassword => {
+          // Almacenar la contraseña hasheada en los valores a actualizar
+          valores.contrasenia = hashedPassword;
+
+          // Actualizar los datos del usuario en la base de datos
+          db.User.update(valores, {
+            where: { id: userId }
+          })
+            .then(() => {
+              // Después de actualizar, redirigir al perfil del usuario actualizado
+              res.redirect(`/user/${userId}`);
+            })
+            .catch(err => {
+              console.log(err);
+              res.status(500).send("Error interno del servidor");
+            });
+        });
+    } else {
+      // Si no se ingresó nueva contraseña, actualizar los datos sin modificar la contraseña
+      db.User.update(valores, {
         where: { id: userId }
       })
-      .then(() => res.redirect(`/user/${userId}`))
-      .catch(err => {
-        console.log(err);
-        res.status(500).send("Error interno del servidor");
-      });
-    } else {
-      return res.render("profile-edit", { errors: errors.array(), old: req.body });
+        .then(() => {
+          // Después de actualizar, redirigir al perfil del usuario actualizado
+          res.redirect(`/user/${userId}`);
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).send("Error interno del servidor");
+        });
     }
-  },
-  
+  }
+},
+
   registrarse: function (req, res) {
     //solo sirve para mostrar la vista
     if (req.cookies.userLogueado) {
