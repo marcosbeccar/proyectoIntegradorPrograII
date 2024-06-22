@@ -13,8 +13,8 @@ let validationsAgregarProducto = [
 router.get("/", productController.index); //después se podría borrar (adaptar la ruta en cada redirect)
 router.get("/detalleProducto", productController.detalleProducto);
 router.get("/resultadoBusqueda", productController.resultadoBusqueda);
-router.get("/agregarProducto/:id", productController.agregarProducto);
-router.post("/agregarProducto/:id", validationsAgregarProducto, productController.productoAgregado);
+router.get("/agregarProducto", productController.agregarProducto);
+router.post("/agregarProducto", validationsAgregarProducto, productController.productoAgregado);
 
 
 
