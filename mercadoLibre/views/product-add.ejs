@@ -34,7 +34,19 @@
 
 				<label for="descripcionProducto"> Descripción:</label>
 				<input type="text" id="descripcionProducto" name="descripcionProducto" class="form-input"><br>
-				<input type="hidden" name="id" value="">
+				
+				<% let userId = null; %>
+				<% if (locals.cookies && locals.cookies.userLogueado) { %>
+					<% userId = locals.cookies.userLogueado.id; %>
+				<% } else if (locals.userSession) { %>
+					<% userId = locals.userSession.id; %>
+				<% } %>
+
+				<% if (userId) { %>
+					<input type="hidden" name="id" value="<%= userId %>">
+				<% } %>
+
+
 			</div>
 				<button type="submit" id="submit-btn">Agregar Producto</button>
 			</form>

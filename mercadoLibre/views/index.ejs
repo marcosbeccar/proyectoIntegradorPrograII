@@ -33,7 +33,7 @@
                             <p class="product-description"><%= producto.descripcionProducto %></p>
                             
                             <% if (producto.usuario && producto.usuario.usuario) { %>
-                                <p class="product-user">Publicado por: <%= producto.usuario.usuario %></p>
+                                <p class="product-user">Publicado por: <a href="/user/<%= producto.usuario.id %>"><%= producto.usuario.usuario %></a></p>
                             <% } else { %>
                                 <p class="product-user">Publicado por: Usuario desconocido</p>
                             <% } %>
@@ -61,7 +61,7 @@
                             <p class="product-description"><%= producto.descripcionProducto %></p>
                             
                             <% if (producto.usuario && producto.usuario.usuario) { %>
-                                <p class="product-user">Publicado por: <%= producto.usuario.usuario %></p>
+                                <p class="product-user">Publicado por: <a href="/user/perfil/<%= producto.usuario.id %>"><%= producto.usuario.usuario %></a></p>
                             <% } else { %>
                                 <p class="product-user">Publicado por: Usuario desconocido</p>
                             <% } %>
@@ -90,7 +90,7 @@
                             <p class="product-description"><%= producto.descripcionProducto %></p>
                             
                             <% if (producto.usuario && producto.usuario.usuario) { %>
-                                <p class="product-user">Publicado por: <%= producto.usuario.usuario %></p>
+                                <p class="product-user">Publicado por: <a href="/user/perfil/<%= producto.usuario.id %>"><%= producto.usuario.usuario %></a></p>
                             <% } else { %>
                                 <p class="product-user">Publicado por: Usuario desconocido</p>
                             <% } %>

@@ -79,7 +79,8 @@ let productController={
         nombreProducto: form.nombreProducto,
         descripcionProducto: form.descripcionProducto,
         created_at: new Date(),
-        updated_at: new Date()
+        updated_at: new Date(),
+        id_usuario: form.id
         })
         .then(function(result) {
             return res.redirect("/product"); // Redirige a la página de productos después de agregar un producto

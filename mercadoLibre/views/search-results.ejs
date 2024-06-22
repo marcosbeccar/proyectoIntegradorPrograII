@@ -27,7 +27,11 @@
                                 <h3><%= producto.nombreProducto %></h3>
                             </a>
                             <p><%= producto.descripcionProducto %></p>
-                            <p>Publicado por: <a href="/user?id=<%= producto.usuario.id %>"><%= producto.usuario.usuario %></a></p>
+                            <% if (producto.usuario && producto.usuario.usuario) { %>
+                                <p class="product-user">Publicado por: <a href="/user/<%= producto.usuario.id %>"><%= producto.usuario.usuario %></a></p>
+                            <% } else { %>
+                                <p class="product-user">Publicado por: Usuario desconocido</p>
+                            <% } %>
                         </div>
                     </div>
                 <% }); %>
