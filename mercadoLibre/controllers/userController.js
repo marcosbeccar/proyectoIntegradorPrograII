@@ -43,11 +43,14 @@ let userController = {
     });
 },
 
-  
-editarPerfil: function (req, res) {
-  const userId = req.params.id;
 
-  if (!req.cookies.userLogueado || req.cookies.userLogueado.id !== parseInt(userId, 10)) {
+editarPerfil: function (req, res) {
+  const userId = Number(req.params.id); //lo convierto a número, porque viene como string
+  
+  if (
+    (!req.cookies.userLogueado || req.cookies.userLogueado.id !== userId) &&
+    (!req.session.userSession || req.session.userSession.id !== userId)
+  ) {
     return res.status(403).send("No tienes permiso para editar este perfil");
   }
 
@@ -76,16 +79,15 @@ profileEdit: function (req, res) {
   let errors = validationResult(req);
   const userId = req.params.id;
 
-  // Verificar si hay errores de validación en los datos del formulario
   if (!errors.isEmpty()) {
-    // Si hay errores, buscar al usuario por su ID para obtener los datos originales
+    // Si hay errores, buscar al usuario por su ID para tener los datos originales
     db.User.findByPk(userId)
       .then(user => {
         if (!user) {
           return res.status(404).send("El usuario no existe o no fue encontrado");
         }
 
-        // Renderizar nuevamente el formulario de edición con los errores y los datos originales
+        // Renderizar nuevamente el formulario con los datos originales (y errores)
         return res.render("profile-edit", {
           id: user.id,
           errors: errors.array(),
@@ -101,7 +103,7 @@ profileEdit: function (req, res) {
         res.status(500).send("Error interno del servidor");
       });
   } else {
-    // Si no hay errores, actualizar los datos del usuario en la base de datos
+    // Si no hay errores, actualizo los datos del usuario en la base de datos
     let data = req.body;
     let valores = {
       email: data.email,
@@ -111,20 +113,17 @@ profileEdit: function (req, res) {
       usuario: data.usuario,
     };
 
-    // Verificar si se ha ingresado una nueva contraseña
+    // Solo si se modificó la contraseña
     if (data.contrasenia) {
-      // Hashear la nueva contraseña antes de almacenarla
       bcrypt.hash(data.contrasenia, 10)
         .then(hashedPassword => {
-          // Almacenar la contraseña hasheada en los valores a actualizar
+          // Append al diccionario de valores (me gustaba mas Python como te diste cuenta?)
           valores.contrasenia = hashedPassword;
 
-          // Actualizar los datos del usuario en la base de datos
           db.User.update(valores, {
             where: { id: userId }
           })
             .then(() => {
-              // Después de actualizar, redirigir al perfil del usuario actualizado
               res.redirect(`/user/${userId}`);
             })
             .catch(err => {
@@ -133,12 +132,11 @@ profileEdit: function (req, res) {
             });
         });
     } else {
-      // Si no se ingresó nueva contraseña, actualizar los datos sin modificar la contraseña
+      // Si no se cambió la contraseña, actualizo como viene
       db.User.update(valores, {
         where: { id: userId }
       })
         .then(() => {
-          // Después de actualizar, redirigir al perfil del usuario actualizado
           res.redirect(`/user/${userId}`);
         })
         .catch(err => {
@@ -151,7 +149,7 @@ profileEdit: function (req, res) {
 
   registrarse: function (req, res) {
     //solo sirve para mostrar la vista
-    if (req.cookies.userLogueado) {
+    if (req.cookies.userLogueado || req.session.userSession) {
       return res.status(404).send("Ya estas registrado");
     } else {return res.render("register", {})}
   },
