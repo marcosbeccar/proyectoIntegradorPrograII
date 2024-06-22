@@ -4,7 +4,11 @@
 <%- include ('./partials/head') %>
 <body>
     <!-- Header -->
-    <%- include ('./partials/header') %>
+    <% if (cookies.userLogueado !== undefined || locals.userSession !== undefined) { %>
+		<%- include('./partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('./partials/header') %>
+	<% } %>
     <!-- /Header -->
 
     <!-- product detail -->
@@ -18,7 +22,7 @@
         <div class="product-detail">
             <div class="row">
                 <article class="col-12 col-lg-8 product-detail-info">
-                    <img src="<%= producto.rutaImagen %>" alt="" class="product-detail-img">
+                    <img src="/images/<%= producto.rutaImagen %>" alt="" class="product-detail-img">
                     <p class="product-detail-description">
                         <%= producto.descripcionProducto %>
                     </p>
@@ -37,10 +41,26 @@
                             </article>
                         <% }); %>
                     </section>
-                    <form class="form" action="" method="get">
-                        <input class="form-input" type="text" value="" placeholder="Agregar comentario">
-                        <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-                    </form>
+
+                    <!--mostrar errores-->
+                    <% if (locals.errors) { %> <!--Solo si errors existe (locals.errors=errors)-->
+                        <% errors.forEach(error => { %>
+                            <!--forEach es una especie de for loop, va a mostrar un <p> por error-->
+                            <p class="mensajes-error">
+                                <%= error.msg %>
+                            </p>
+                        <% }) %>
+                    <% } %>
+                    <!--===========================================================================-->
+
+                    <% if (userSession || cookies.userLogueado) { %>
+                        <form class="form" action="/comment/<%= producto.id %>" method="POST">
+                            <input class="form-input" type="text" value="<%= locals.old && old.comentario ? old.comentario : '' %>" placeholder="Agregar comentario" name="comentario">
+                            <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+                        </form>
+                    <% } else { %>
+                        <h3>Debes <a href="/user/iniciarSesion" style="color: blue">iniciar sesión</a> para agregar un comentario.</h3>
+                    <% } %>
                     <hr>
                 </div>
             </div>

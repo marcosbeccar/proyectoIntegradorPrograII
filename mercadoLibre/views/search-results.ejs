@@ -5,7 +5,11 @@
 
 <body>
     <!-- Header -->
-    <%- include ('./partials/header') %>
+    <% if (cookies.userLogueado !== undefined || locals.userSession !== undefined) { %>
+		<%- include('./partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('./partials/header') %>
+	<% } %>
     <!-- /Header -->
 
     <!-- Resultados de búsqueda -->

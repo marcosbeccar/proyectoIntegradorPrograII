@@ -29,8 +29,8 @@ let productController={
         })
     },
     detalleProducto:function(req,res){
-        const productId = req.query.id;
-
+        const productId = Number(req.params.id);
+        
         db.Product.findByPk(productId, {
                 include: [{
                     model: db.User,
@@ -125,7 +125,8 @@ let productController={
             console.error(error);
             res.status(500).send('Error interno del servidor');
         });
-    }
+    },
+    
     
 }
 module.exports = productController;

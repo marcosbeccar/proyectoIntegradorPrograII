@@ -1,19 +1,25 @@
-module.exports = function(sequelize, dataTypes) {
+module.exports = function(sequelize, DataTypes) { 
     let alias = "Comment";
     let cols = {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
         },
         id_usuario: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
         },
         id_productos: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
         },
         comentario: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
+        },
+        createdAt: {
+            type: DataTypes.DATE
+        },
+        updatedAt: {
+            type: DataTypes.DATE
         }
         
     };
