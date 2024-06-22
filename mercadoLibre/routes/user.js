@@ -20,7 +20,7 @@ let validationsRegister = [
     }),
   body("usuario").notEmpty().withMessage("Campo usuario incompleto"),
   body("contrasenia").notEmpty().withMessage("Campo contraseña incompleto"),
-  body("nro_documento").notEmpty().withMessage("DNI incompleto").isLength({ max: 8 }).withMessage("El DNI debe tener como máximo 15 caracteres"),
+  body("nro_documento").notEmpty().withMessage("DNI incompleto").isLength({ max: 8 }).withMessage("El DNI debe tener como máximo 8 caracteres"),
 ];
 
 let validationsLogin = [
@@ -51,7 +51,7 @@ let validationsEditProfile = [
   }),
 
   body("usuario").notEmpty().withMessage("Campo usuario incompleto"),
-  body("dni").notEmpty().withMessage("Campo DNI incompleto").isLength({ max: 8 }).withMessage("El DNI debe tener como máximo 15 caracteres"),
+  body("dni").notEmpty().withMessage("Campo DNI incompleto").isLength({ max: 8 }).withMessage("El DNI debe tener como máximo 8 caracteres"),
   body("foto_perfil").notEmpty().withMessage('Campo foto de perfil incompleto')
 ];
 
