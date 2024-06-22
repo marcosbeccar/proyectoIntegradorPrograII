@@ -42,7 +42,19 @@
                     <input type="number" id="dni" name="dni" class="form-input" value="<%= dni %>"><br>
 
                     <label for="foto_perfil">Foto de perfil:</label>
-                    <input type="text" id="foto_perfil" name="foto_perfil" class="form-input" value="<%= foto_perfil %>"><br>
+                    <% if (locals.old && old.foto_perfil) { %>
+                        <input type="text" id="foto_perfil" name="foto_perfil" class="form-input"
+                               value="<%= old.foto_perfil %>"><br>
+                    <% } else { %>
+                        <select id="foto_perfil" name="foto_perfil" class="form-input">
+                            <option value="perfil_hombre.jpeg">Hombre 1</option>
+                            <option value="perfil_hombre_2.jpeg">Hombre 2</option>
+                            <option value="perfil_himbre_3.jpeg">Hombre 3</option>
+                            <option value="perfil_mujer.webp">Mujer 1</option>
+                            <option value="perfil_mujer_2.webp">Mujer 2</option>
+                            <option value="usuario_default.png">Default</option>
+                        </select><br>
+                    <% } %>
                 </div>
                 <button type="submit" id="submit-btn">Enviar</button>
             </form>

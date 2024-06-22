@@ -31,7 +31,7 @@
                     <section class="comments">
                         <% producto.comentarios.forEach(comentario => { %>
                             <article>
-                                <img src="<%= comentario.usuario.foto_perfil %>">
+                                <img src="/images/<%= comentario.usuario.foto_perfil %>">
                                 <div class="data">
                                     <p class="user">
                                         <strong> <a href="http://localhost:3000/user/<%= comentario.usuario.id %>"><%= comentario.usuario.usuario %> </a> </strong>

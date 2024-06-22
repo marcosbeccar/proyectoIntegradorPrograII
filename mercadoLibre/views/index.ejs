@@ -28,7 +28,7 @@
                 <% if (index < 4) { %>
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="product-card">
-                            <img src="<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>" class="product-img">
+                            <img src="/images/<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>" class="product-img">
                             <h3 class="product-name"><%= producto.nombreProducto %></h3>
                             <p class="product-description"><%= producto.descripcionProducto %></p>
                             
@@ -38,7 +38,7 @@
                                 <p class="product-user">Publicado por: Usuario desconocido</p>
                             <% } %>
 
-                            <a href="/product/detalleProducto?id=<%= producto.id %>" class="btn btn-primary">Ver Detalle</a>
+                            <a href="/product/detalleProducto/<%= producto.id %>" class="btn btn-primary">Ver Detalle</a>
                         </div>
                     </div>
                 <% } %>
@@ -56,7 +56,7 @@
                 <% if (index >= 4 && index < 8) { %>
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="product-card">
-                            <img src="<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>" class="product-img">
+                            <img src="/images/<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>" class="product-img">
                             <h3 class="product-name"><%= producto.nombreProducto %></h3>
                             <p class="product-description"><%= producto.descripcionProducto %></p>
                             
@@ -66,7 +66,7 @@
                                 <p class="product-user">Publicado por: Usuario desconocido</p>
                             <% } %>
 
-                            <a href="/product/detalleProducto?id=<%= producto.id %>" class="btn btn-primary">Ver Detalle</a>
+                            <a href="/product/detalleProducto/<%= producto.id %>" class="btn btn-primary">Ver Detalle</a>
                         </div>
                     </div>
                 <% } %>
@@ -85,7 +85,7 @@
                 <% if (index >= 8 && index < 12) { %>
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="product-card">
-                            <img src="<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>" class="product-img">
+                            <img src="/images/<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>" class="product-img">
                             <h3 class="product-name"><%= producto.nombreProducto %></h3>
                             <p class="product-description"><%= producto.descripcionProducto %></p>
                             
@@ -95,7 +95,7 @@
                                 <p class="product-user">Publicado por: Usuario desconocido</p>
                             <% } %>
 
-                            <a href="/product/detalleProducto?id=<%= producto.id %>" class="btn btn-primary">Ver Detalle</a>
+                            <a href="/product/detalleProducto/<%= producto.id %>" class="btn btn-primary">Ver Detalle</a>
                         </div>
                     </div>
                 <% } %>

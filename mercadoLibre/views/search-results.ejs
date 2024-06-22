@@ -26,8 +26,8 @@
                 <% productos.forEach(producto => { %>
                     <div class="col-12 col-md-4">
                         <div class="product-card">
-                            <a href="/product/detalleProducto?id=<%= producto.id %>">
-                                <img src="<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>">
+                            <a href="/product/detalleProducto/<%= producto.id %>">
+                                <img src="/images/<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>">
                                 <h3><%= producto.nombreProducto %></h3>
                             </a>
                             <p><%= producto.descripcionProducto %></p>
