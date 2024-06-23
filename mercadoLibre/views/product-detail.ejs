@@ -15,9 +15,12 @@
     <div class="container products-wrapper">
         <div class="d-flex align-items-center">
             <h2 class="products-title"><%= producto.nombreProducto %></h2>
-            <p class="product-detail-description">
-                <a href="http://localhost:3000/product/agregarProducto">Editar</a>
-            </p>
+            <% if (producto.id_usuario === cookies.userLogueado.id || userSession.id){ %>
+                <p class="product-detail-description">
+                    <a href="http://localhost:3000/product/editarProducto/<%= productId%>">Editar</a>
+                </p>
+            <% } %>
+            
         </div>
         <div class="product-detail">
             <div class="row">

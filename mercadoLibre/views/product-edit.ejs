@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+
+<%- include ('./partials/head') %>
+
+<body>
+	<!-- Header -->
+	<%- include ('./partials/headerLogueado') %>
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Agregar productos</h2>
+			</div>
+			<% if (locals.errors) { %> <!--Solo si errors existe (locals.errors=errors)-->
+                <% errors.forEach(error => { %>
+                    <!--forEach es una especie de for loop, va a mostrar un <p> por error-->
+                    <p class="mensajes-error">
+                        <%= error.msg %>
+                    </p>
+                <% }) %>
+            <% } %>
+			<!-- Show the "ultimos" products -->
+			<form action="" method="POST" id="registro-form"> 
+				<div id="separador">
+				<label for="rutaImagen">Imagen:</label>
+				<input type="text" id="rutaImagen" name="rutaImagen" class="form-input" value="default.jpg"><br>
+
+				<label for="nombreProducto"> Nombre del producto:</label>
+				<input type="text" id="nombreProducto" name="nombreProducto" class="form-input"><br>
+
+				<label for="descripcionProducto"> Descripción:</label>
+				<input type="text" id="descripcionProducto" name="descripcionProducto" class="form-input"><br>
+				
+				<% let userId = null; %>
+				<% if (locals.cookies && locals.cookies.userLogueado) { %>
+					<% userId = locals.cookies.userLogueado.id; %>
+				<% } else if (locals.userSession) { %>
+					<% userId = locals.userSession.id; %>
+				<% } %>
+
+				<% if (userId) { %>
+					<input type="hidden" name="id" value="<%= userId %>">
+				<% } %>
+
+
+			</div>
+				<button type="submit" id="submit-btn">Agregar Producto</button>
+			</form>
+
+
+	<!-- footer -->
+	<%- include ('./partials/footer') %>
+	<!-- /footer -->
+</body>
+
+</html>

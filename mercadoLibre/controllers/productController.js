@@ -1,5 +1,5 @@
 const db=require('../database/models')
-const db1=require('../db/data') //después lo borramos
+//const db1=require('../db/data') //después lo borramos
 const { validationResult, cookie } = require("express-validator"); //pido las validaciones de la ruta
 //se usa validationResult como palabra clave, no se puede poner otro nombre
 
@@ -25,7 +25,7 @@ let productController={
     },
     productos:function(req,res){
        return res.render('product',{
-            data: db1.productos
+            data: db.productos
         })
     },
     detalleProducto:function(req,res){
@@ -51,7 +51,9 @@ let productController={
                     });
                 } else {
                     res.render('product-detail', {
-                        producto
+                        producto: producto, // Asegúrate de que 'producto' está definido
+                        userSession: req.session.userSession, // Asegúrate de que 'userSession' está definido
+                        cookies: req.cookies // Asegúrate de que 'cookies' está definido
                     });
                 }
             })
@@ -74,7 +76,6 @@ let productController={
         let form = req.body;
 
         db.Product.create({
-        //id_usuario: form.
         rutaImagen: form.rutaImagen,
         nombreProducto: form.nombreProducto,
         descripcionProducto: form.descripcionProducto,
@@ -126,7 +127,20 @@ let productController={
             res.status(500).send('Error interno del servidor');
         });
     },
-    
+    editarProducto: function(req, res){
+    const userId = Number(req.params.id); //lo convierto a número, porque viene como string
+    const productId = Number(req.params.id); //lo convierto a número, porque viene como string
+        if (
+            (!req.cookies.userLogueado || req.cookies.userLogueado.id !== userId) &&
+            (!req.session.userSession || req.session.userSession.id !== userId)
+          ) {
+            return res.status(403).send("No tienes permiso para editar este perfil");
+          }
+
+    },
+    productoEditado: function(req, res){
+
+    },
     
 }
 module.exports = productController;
