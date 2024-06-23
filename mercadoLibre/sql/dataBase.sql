@@ -1,8 +1,8 @@
 --versión corregida :) copien y peguen esto
 
-CREATE SCHEMA proyectoIntegrador2;
+CREATE SCHEMA proyectoIntegrador3;
 
-USE proyectoIntegrador2;
+USE proyectoIntegrador3;
 
 CREATE TABLE tabla_de_usuarios (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
