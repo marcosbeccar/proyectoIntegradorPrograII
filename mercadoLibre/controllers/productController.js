@@ -52,8 +52,8 @@ let productController={
                 } else {
                     res.render('product-detail', {
                         producto: producto, // Asegúrate de que 'producto' está definido
-                        userSession: req.session.userSession, // Asegúrate de que 'userSession' está definido
-                        cookies: req.cookies // Asegúrate de que 'cookies' está definido
+                        userSession1: req.session.userSession, // Asegúrate de que 'userSession' está definido
+                        cookies1: req.cookies.userLogueado // Asegúrate de que 'cookies' está definido
                     });
                 }
             })
@@ -128,14 +128,27 @@ let productController={
         });
     },
     editarProducto: function(req, res){
-    const userId = Number(req.params.id); //lo convierto a número, porque viene como string
-    const productId = Number(req.params.id); //lo convierto a número, porque viene como string
-        if (
-            (!req.cookies.userLogueado || req.cookies.userLogueado.id !== userId) &&
-            (!req.session.userSession || req.session.userSession.id !== userId)
-          ) {
-            return res.status(403).send("No tienes permiso para editar este perfil");
-          }
+        const userId = req.session.userSession.id || req.cookies.userLogueado.id;
+        const productId = Number(req.params.productId);
+    
+        db.Product.findByPk(productId, {
+            include: [{ model: db.User, as: 'usuario' }]
+        })
+        .then(function(product) {
+            if (!product) {
+                return res.render('error', { message: 'Producto no encontrado' });
+            }
+            
+            if (product.id_usuario !== userId) {
+                return res.status(403).send("No tienes permiso para editar este producto");
+            }
+    
+            res.render('product-edit', { producto: product });
+        })
+        .catch(error => {
+            console.error(error);
+            res.status(500).send('Error interno del servidor');
+        });
 
     },
     productoEditado: function(req, res){

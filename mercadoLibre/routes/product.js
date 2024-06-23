@@ -17,7 +17,7 @@ router.get("/detalleProducto/:id", productController.detalleProducto);
 router.get("/resultadoBusqueda", productController.resultadoBusqueda);
 router.get("/agregarProducto", productController.agregarProducto);
 router.post("/agregarProducto", validationsAgregarProducto, productController.productoAgregado);
-router.get("/editarProducto", productController.editarProducto);
+router.get("/editarProducto/:id/:productId", productController.editarProducto);
 router.post("/editarProducto", validationsAgregarProducto, productController.productoEditado);
 
 module.exports = router;

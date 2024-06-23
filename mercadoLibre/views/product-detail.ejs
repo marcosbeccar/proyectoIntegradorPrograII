@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
 <%- include ('./partials/head') %>
 <body>
-    <!-- Header -->
-    <% if (cookies.userLogueado !== undefined || locals.userSession !== undefined) { %>
-		<%- include('./partials/headerLogueado') %>
-	<% } else { %>
-		<%- include('./partials/header') %>
-	<% } %>
-    <!-- /Header -->
+    <% if (cookies.userLogueado || locals.userSession) { %>
+        <%- include('./partials/headerLogueado') %>
+    <% } else { %>
+        <%- include('./partials/header') %>
+    <% } %>
 
-    <!-- product detail -->
     <div class="container products-wrapper">
         <div class="d-flex align-items-center">
             <h2 class="products-title"><%= producto.nombreProducto %></h2>
-            <% if (producto.id_usuario === cookies.userLogueado.id || userSession.id){ %>
+            <% 
+                var loggedInUserId;
+                if (cookies1.userLogueado) {
+                    loggedInUserId = cookies.userLogueado.id;
+                } else if (locals.userSession) {
+                    loggedInUserId = locals.userSession.id;
+                } else {
+                    loggedInUserId = null;
+                }
+
+                if (producto.id_usuario === loggedInUserId) { 
+            %>
                 <p class="product-detail-description">
-                    <a href="http://localhost:3000/product/editarProducto/<%= productId%>">Editar</a>
+                    <a href="http://localhost:3000/product/editarProducto/<%= producto.id %>">Editar</a>
                 </p>
             <% } %>
-            
         </div>
         <div class="product-detail">
             <div class="row">
@@ -45,16 +51,13 @@
                         <% }); %>
                     </section>
 
-                    <!--mostrar errores-->
-                    <% if (locals.errors) { %> <!--Solo si errors existe (locals.errors=errors)-->
+                    <% if (locals.errors) { %>
                         <% errors.forEach(error => { %>
-                            <!--forEach es una especie de for loop, va a mostrar un <p> por error-->
                             <p class="mensajes-error">
                                 <%= error.msg %>
                             </p>
                         <% }) %>
                     <% } %>
-                    <!--===========================================================================-->
 
                     <% if (userSession || cookies.userLogueado) { %>
                         <form class="form" action="/comment/<%= producto.id %>" method="POST">
@@ -69,11 +72,7 @@
             </div>
         </div>
     </div>
-    <!-- /product detail -->
 
-    <!-- footer -->
     <%- include ('./partials/footer') %>
-    <!-- /footer -->
-
 </body>
 </html>
