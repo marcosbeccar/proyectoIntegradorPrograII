@@ -152,8 +152,29 @@ let productController={
 
     },
     productoEditado: function(req, res){
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+        let form = req.body;
+        const productId = Number(req.params.productId);
+        
+        db.Producto.update({
+        rutaImagen: form.rutaImagen,
+        nombreProducto: form.nombreProducto,
+        descripcionProducto: form.descripcionProducto 
+        }),{
+             where: {productId}
+            }
+        .then(function(result) {
+            return res.redirect("/product/:productId"); // Redirige a la página de productos después de editar el producto
+        })
+        .catch(function(error) {
+            console.log(error); 
+            return res.status(500).send("Hubo un error al editar el producto"); // Envía una respuesta de error al cliente
+        });
+        } else {
+           return res.render("product-edit", { errors: errors.array(), old: req.body });
+        }
+      }
+    }
 
-    },
-    
-}
 module.exports = productController;

@@ -11,18 +11,18 @@
     <div class="container products-wrapper">
         <div class="d-flex align-items-center">
             <h2 class="products-title"><%= producto.nombreProducto %></h2>
-            <% 
-                var loggedInUserId;
-                if (cookies1.userLogueado) {
-                    loggedInUserId = cookies.userLogueado.id;
-                } else if (locals.userSession) {
-                    loggedInUserId = locals.userSession.id;
-                } else {
-                    loggedInUserId = null;
-                }
+            
+            <% let loggedInUserId; %>
+            <%  if (cookies1.userLogueado) { %>
+            <%      loggedInUserId = cookies.userLogueado.id; %>
+            <%    } else if (locals.userSession) { %>
+            <%        loggedInUserId = locals.userSession.id; %>
+            <%    } else { %>
+            <%        loggedInUserId = null; %>
+            <%   } %>
 
-                if (producto.id_usuario === loggedInUserId) { 
-            %>
+            <%    if (producto.id_usuario === loggedInUserId) { %>
+
                 <p class="product-detail-description">
                     <a href="http://localhost:3000/product/editarProducto/<%= producto.id %>">Editar</a>
                 </p>
