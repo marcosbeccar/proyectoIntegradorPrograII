@@ -29,7 +29,7 @@
                 </article>
                 <div class="col-12 col-lg-4">
                     <section class="comments">
-                        <% producto.comentarios.forEach(comentario => { %>
+                        <% producto.comentarios.reverse().forEach(comentario => { %>
                             <article>
                                 <img src="/images/<%= comentario.usuario.foto_perfil %>">
                                 <div class="data">

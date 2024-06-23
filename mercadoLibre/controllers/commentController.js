@@ -36,9 +36,10 @@ let commentController = {
                 as: 'comentarios',
                 include: [{
                     model: db.User,
-                    as: 'usuario'
+                    as: 'usuario',
                 }]
-            }]
+            }] //en vez de mostrar los más nuevos primero con order:, en este caso es más fácil invertir el array en la vista
+            
         })
         .then(producto => {
             if (!producto) {
