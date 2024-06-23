@@ -13,6 +13,98 @@
   --base-font-family: 'Roboto', sans-serif
 } 
 
+/*== targetas de productos ==*/
+
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.8s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card .product-img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.1);
+}
+
+.product-card:not(:hover) .product-img {
+  transform: scale(1);
+}
+
+.product-card .product-name {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  transition: transform 0.8s ease;
+}
+
+.product-card:hover .product-name {
+  transform: translateY(-5px);
+}
+
+.product-card:not(:hover) .product-name {
+  transform: translateY(0);
+}
+
+.product-card .product-description {
+  padding: 0 10px 10px;
+  color: #666;
+  transition: transform 0.8s ease;
+}
+
+.product-card:hover .product-description {
+  transform: translateY(-5px);
+}
+
+.product-card:not(:hover) .product-description {
+  transform: translateY(0);
+}
+
+.product-card .product-user {
+  padding: 10px;
+  font-size: 14px;
+  color: #888;
+  transition: transform 0.8s ease;
+}
+
+.product-card:hover .product-user {
+  transform: translateY(-5px);
+}
+
+.product-card:not(:hover) .product-user {
+  transform: translateY(0);
+}
+
+.product-card .btn-primary {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  transition: background-color 0.3s ease;
+}
+
+.product-card .btn-primary:hover {
+  background-color: #0056b3;
+}
+
 
 /*====== Basics ======*/
 * {

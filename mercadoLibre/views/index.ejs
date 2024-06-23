@@ -26,19 +26,21 @@
         <div class="row">
             <% productos.forEach((producto, index) => { %>
                 <% if (index < 4) { %>
-                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-3 product-card-container">
                         <div class="product-card">
                             <img src="/images/<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>" class="product-img">
-                            <h3 class="product-name"><%= producto.nombreProducto %></h3>
-                            <p class="product-description"><%= producto.descripcionProducto %></p>
-                            
-                            <% if (producto.usuario && producto.usuario.usuario) { %>
-                                <p class="product-user">Publicado por: <a href="/user/<%= producto.usuario.id %>"><%= producto.usuario.usuario %></a></p>
-                            <% } else { %>
-                                <p class="product-user">Publicado por: Usuario desconocido</p>
-                            <% } %>
-
-                            <a href="/product/detalleProducto/<%= producto.id %>" class="btn btn-primary">Ver Detalle</a>
+                            <div class="product-details">
+                                <h3 class="product-name"><%= producto.nombreProducto %></h3>
+                                <p class="product-description"><%= producto.descripcionProducto %></p>
+                                
+                                <% if (producto.usuario && producto.usuario.usuario) { %>
+                                    <p class="product-user">Publicado por: <a href="/user/<%= producto.usuario.id %>"><%= producto.usuario.usuario %></a></p>
+                                <% } else { %>
+                                    <p class="product-user">Publicado por: Usuario desconocido</p>
+                                <% } %>
+                    
+                                <a href="/product/detalleProducto/<%= producto.id %>" class="btn btn-primary">Ver Detalle</a>
+                            </div>
                         </div>
                     </div>
                 <% } %>
@@ -54,19 +56,21 @@
         <div class="row">
             <% productos.forEach((producto, index) => { %>
                 <% if (index >= 4 && index < 8) { %>
-                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-3 product-card-container">
                         <div class="product-card">
                             <img src="/images/<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>" class="product-img">
-                            <h3 class="product-name"><%= producto.nombreProducto %></h3>
-                            <p class="product-description"><%= producto.descripcionProducto %></p>
-                            
-                            <% if (producto.usuario && producto.usuario.usuario) { %>
-                                <p class="product-user">Publicado por: <a href="/user/perfil/<%= producto.usuario.id %>"><%= producto.usuario.usuario %></a></p>
-                            <% } else { %>
-                                <p class="product-user">Publicado por: Usuario desconocido</p>
-                            <% } %>
-
-                            <a href="/product/detalleProducto/<%= producto.id %>" class="btn btn-primary">Ver Detalle</a>
+                            <div class="product-details">
+                                <h3 class="product-name"><%= producto.nombreProducto %></h3>
+                                <p class="product-description"><%= producto.descripcionProducto %></p>
+                                
+                                <% if (producto.usuario && producto.usuario.usuario) { %>
+                                    <p class="product-user">Publicado por: <a href="/user/<%= producto.usuario.id %>"><%= producto.usuario.usuario %></a></p>
+                                <% } else { %>
+                                    <p class="product-user">Publicado por: Usuario desconocido</p>
+                                <% } %>
+                    
+                                <a href="/product/detalleProducto/<%= producto.id %>" class="btn btn-primary">Ver Detalle</a>
+                            </div>
                         </div>
                     </div>
                 <% } %>
@@ -83,19 +87,21 @@
         <div class="row">
             <% productos.forEach((producto, index) => { %>
                 <% if (index >= 8 && index < 12) { %>
-                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-3 product-card-container">
                         <div class="product-card">
                             <img src="/images/<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>" class="product-img">
-                            <h3 class="product-name"><%= producto.nombreProducto %></h3>
-                            <p class="product-description"><%= producto.descripcionProducto %></p>
-                            
-                            <% if (producto.usuario && producto.usuario.usuario) { %>
-                                <p class="product-user">Publicado por: <a href="/user/perfil/<%= producto.usuario.id %>"><%= producto.usuario.usuario %></a></p>
-                            <% } else { %>
-                                <p class="product-user">Publicado por: Usuario desconocido</p>
-                            <% } %>
-
-                            <a href="/product/detalleProducto/<%= producto.id %>" class="btn btn-primary">Ver Detalle</a>
+                            <div class="product-details">
+                                <h3 class="product-name"><%= producto.nombreProducto %></h3>
+                                <p class="product-description"><%= producto.descripcionProducto %></p>
+                                
+                                <% if (producto.usuario && producto.usuario.usuario) { %>
+                                    <p class="product-user">Publicado por: <a href="/user/<%= producto.usuario.id %>"><%= producto.usuario.usuario %></a></p>
+                                <% } else { %>
+                                    <p class="product-user">Publicado por: Usuario desconocido</p>
+                                <% } %>
+                    
+                                <a href="/product/detalleProducto/<%= producto.id %>" class="btn btn-primary">Ver Detalle</a>
+                            </div>
                         </div>
                     </div>
                 <% } %>
