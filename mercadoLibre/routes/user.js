@@ -9,6 +9,7 @@ let validationsRegister = [
   body("email")
     .notEmpty().withMessage("Campo email incompleto")
     .isEmail().withMessage("Formato de email incorrecto")
+    .isLength({ max: 60 }).withMessage('El email es muy largo')
     .custom(function (value, { req }) {
       return db.User.findOne({
         where: { email: req.body.email }
@@ -18,7 +19,7 @@ let validationsRegister = [
         }
       });
     }),
-  body("usuario").notEmpty().withMessage("Campo usuario incompleto"),
+  body("usuario").notEmpty().withMessage("Campo usuario incompleto").isLength({ max: 99 }).withMessage('El usuario es muy largo'),
   body("contrasenia").notEmpty().withMessage("Campo contraseña incompleto"),
   body("nro_documento").notEmpty().withMessage("DNI incompleto").isLength({ max: 8 }).withMessage("El DNI debe tener como máximo 8 caracteres"),
 ];
@@ -35,6 +36,7 @@ let validationsEditProfile = [
   body("email")
   .notEmpty().withMessage("Campo email incompleto")
   .isEmail().withMessage("Formato de email incorrecto")
+  .isLength({ max: 60 }).withMessage('El email es muy largo')
   .custom(function (value, { req }) {
     return db.User.findByPk(req.params.id)
       .then(function (currentUser) {
@@ -50,7 +52,7 @@ let validationsEditProfile = [
       });
   }),
 
-  body("usuario").notEmpty().withMessage("Campo usuario incompleto"),
+  body("usuario").notEmpty().withMessage("Campo usuario incompleto").isLength({ max: 99 }).withMessage('El usuario es muy largo'),
   body("dni").notEmpty().withMessage("Campo DNI incompleto").isLength({ max: 8 }).withMessage("El DNI debe tener como máximo 8 caracteres"),
   body("foto_perfil").notEmpty().withMessage('Campo foto de perfil incompleto')
 ];
