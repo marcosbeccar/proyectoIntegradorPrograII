@@ -197,8 +197,24 @@ let productController={
       },
 
       eliminarProducto: function(req,res){
-        const productId = Number(req.params.id);
-        const userId = req.cookies.userLogueado ? req.cookies.userLogueado.id : req.session.userSession.id;
+        const productId = Number(req.params.id);// Convertimos el id del producto de la URL a un número
+        // Obtenemos el id del usuario logueado desde las cookies o la sesión utilizando un operador ternario:
+        
+        let userId; //creamos la variable
+
+        // Obtenemos el id del usuario logueado desde las cookies o la sesión
+        if (req.cookies.userLogueado) {
+            userId = req.cookies.userLogueado.id;
+        } else if (req.session.userSession) {
+            userId = req.session.userSession.id;
+        } else {
+            userId = null;
+        }
+    
+        // Verificamoa si el usuario logueado está identificado
+        if (!userId) {
+            return res.status(403).send("Usuario no logueado");
+        }
 
         db.Product.findByPk(productId)
             .then(producto => {
@@ -211,10 +227,10 @@ let productController={
 
                 return db.Product.destroy({ where: { id: productId } });
             })
-            .then(() => {
-                res.redirect('/'); // Redirige a la página principal después de eliminar el producto
+            .then(function(){
+                res.redirect('/'); // Redirigimos a la página principal después de eliminar el producto
             })
-            .catch(error => {
+            .catch(function(error){
                 console.error(error);
                 res.status(500).send('Error interno del servidor');
             });
