@@ -6,9 +6,9 @@ let productController={
     index:function(req,res){
         
         db.Product.findAll({
-            order: [['createdAt', 'DESC']], // Ordena por fecha de creación de forma descendente
-            limit: 12, // Limita a los 10 productos más recientes
-            include: [{ model: db.User, as: 'usuario' }] // Incluye la información del usuario que publicó el producto
+            order: [['createdAt', 'DESC']], // Ordenamos por fecha de creación de forma descendente
+            limit: 12, // Limitamos a los 12 productos más recientes
+            include: [{ model: db.User, as: 'usuario' }] // Incluimos la información del usuario que publicó el producto
         })
         .then(productos => {
             res.render('index', {
@@ -50,9 +50,9 @@ let productController={
                     });
                 } else {
                     res.render('product-detail', {
-                        producto: producto, // Asegúrate de que 'producto' está definido
-                        userSession1: req.session.userSession, // Asegúrate de que 'userSession' está definido
-                        cookies1: req.cookies.userLogueado, // Asegúrate de que 'cookies' está definido
+                        producto: producto, 
+                        userSession1: req.session.userSession, 
+                        cookies1: req.cookies.userLogueado, 
                         id: producto.id_usuario
                     });
                 }
@@ -61,8 +61,6 @@ let productController={
                 console.error(error);
                 res.status(500).send('Error interno del servidor');
             });
-  
-
 
     },
 

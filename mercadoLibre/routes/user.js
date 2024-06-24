@@ -70,6 +70,7 @@ router.post("/newUser", validationsRegister, userController.register); // Recibe
 router.get("/iniciarSesion", userController.iniciarSesion); // Mostrar el formulario de login
 router.post("/login", validationsLogin, userController.login); // Recibe el formulario de login
 router.post("/logout", userController.logout); // Logout
+
 //Rutas que dependen de algo (van a lo último porque sino se confunde el id con otra cosa)
 router.get("/:id", userController.perfil); // Perfil de usuario
 router.get("/editarPerfil/:id", userController.editarPerfil); // Formulario para editar perfil
