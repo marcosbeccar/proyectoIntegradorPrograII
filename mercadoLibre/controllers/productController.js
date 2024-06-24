@@ -1,5 +1,4 @@
 const db=require('../database/models')
-//const db1=require('../db/data') //después lo borramos
 const { validationResult, cookie } = require("express-validator"); //pido las validaciones de la ruta
 //se usa validationResult como palabra clave, no se puede poner otro nombre
 
@@ -53,7 +52,8 @@ let productController={
                     res.render('product-detail', {
                         producto: producto, // Asegúrate de que 'producto' está definido
                         userSession1: req.session.userSession, // Asegúrate de que 'userSession' está definido
-                        cookies1: req.cookies.userLogueado // Asegúrate de que 'cookies' está definido
+                        cookies1: req.cookies.userLogueado, // Asegúrate de que 'cookies' está definido
+                        id: producto.id_usuario
                     });
                 }
             })
@@ -128,7 +128,7 @@ let productController={
         });
     },
     editarProducto: function(req, res){
-        const userId = req.session.userSession.id || req.cookies.userLogueado.id;
+        const userId = Number(req.params.userId);
         const productId = Number(req.params.productId);
     
         db.Product.findByPk(productId, {
@@ -142,8 +142,7 @@ let productController={
             if (product.id_usuario !== userId) {
                 return res.status(403).send("No tienes permiso para editar este producto");
             }
-    
-            res.render('product-edit', { producto: product });
+            res.render('product-edit', { producto: product,});
         })
         .catch(error => {
             console.error(error);
@@ -156,16 +155,18 @@ let productController={
         if (errors.isEmpty()) {
         let form = req.body;
         const productId = Number(req.params.productId);
+        const userId = Number(req.params.userId);
         
-        db.Producto.update({
+        db.Product.update({
         rutaImagen: form.rutaImagen,
         nombreProducto: form.nombreProducto,
-        descripcionProducto: form.descripcionProducto 
-        }),{
-             where: {productId}
-            }
+        descripcionProducto: form.descripcionProducto,
+        updated_at: new Date(), 
+        },{
+             where: { id: productId}
+        })
         .then(function(result) {
-            return res.redirect("/product/:productId"); // Redirige a la página de productos después de editar el producto
+            return res.redirect(`/product/detalleProducto/${productId}`); // Redirige a la página de productos después de editar el producto
         })
         .catch(function(error) {
             console.log(error); 

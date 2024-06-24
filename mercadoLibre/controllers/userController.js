@@ -1,5 +1,4 @@
 const db = require("../database/models");
-const db1 = require("../db/data"); //después lo borramos
 let bcrypt = require("bcryptjs");
 const { validationResult, cookie } = require("express-validator"); //pido las validaciones de la ruta
 //se usa validationResult como palabra clave, no se puede poner otro nombre

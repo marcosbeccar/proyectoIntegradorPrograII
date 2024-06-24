@@ -24,7 +24,7 @@
             <%    if (producto.id_usuario === loggedInUserId) { %>
 
                 <p class="product-detail-description">
-                    <a href="http://localhost:3000/product/editarProducto/<%= producto.id %>">Editar</a>
+                    <a href="http://localhost:3000/product/editarProducto/<%= producto.id %>/<%=id%>">Editar</a>
                 </p>
 
                 <form action="/product/eliminarProducto/<%= producto.id %>" method="POST" style="display:inline;">
