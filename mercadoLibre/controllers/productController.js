@@ -97,32 +97,36 @@ let productController={
 
 
     resultadoBusqueda: function(req, res) {
-        const query = req.query.q; //Extrae el valor del parámetro de consulta q de la solicitud HTTP y lo guarda en la variable query.
+        const query = req.query.q; //Extraemos el valor del parámetro de consulta q de la solicitud HTTP y lo guardamos en la variable query.
         
-        if (!query) { //Lógica para la búsqueda cuando `query` está vacío
+        if (!query) { //Hacemos la lógica para la búsqueda cuando `query` está vacío
             return res.render('search-results', { productos: [], mensaje: "No hay resultados para su criterio de búsqueda" });
         }// Renderiza la vista 'search-results' con un mensaje de que no hay resultados.
 
-        db.Product.findAll({ //Busca productos en la base de datos que coincidan con la consulta de búsqueda.
+        db.Product.findAll({ //Buscamos productos en la base de datos que coincidan con la consulta de búsqueda.
             where: {
-                [db.Sequelize.Op.or]: [//Utilizamos OR para buscar productos cuyo nombre o descripción contengan la consulta.
+                [db.Sequelize.Op.or]: [//Usamos OR para buscar productos cuyo nombre o descripción contengan la consulta.
                     { nombreProducto: { [db.Sequelize.Op.like]: `%${query}%` } }, //nombreProducto es el nombre del campo en la tabla Product que representa el nombre del producto
-                    { descripcionProducto: { [db.Sequelize.Op.like]: `%${query}%` } } // descripcionProducto nombre del campo en la tabla Product que representa la descripción del producto.
-                ] //Utilizamos el operador LIKE que es el equivalente en Sequelize del operador LIKE de SQL.
-                // %${query}% contiene el término de búsqueda (query) rodeado por porcentajes (%), que representa cero o más caracteres --> busca cualquier registro donde contenga el valor de query 
+                    { descripcionProducto: { [db.Sequelize.Op.like]: `%${query}%` } } // descripcionProducto es el nombre del campo en la tabla Product que representa la descripción del producto.
+                ] //Usamos el operador LIKE que es el equivalente en Sequelize del operador LIKE de SQL.
+                // %${query}% contiene el término de búsqueda (query) rodeado por (%), que representa cero o más caracteres --> esto busca cualquier registro donde contenga el valor de query 
 
             },
-            include: [{ model: db.User, as: 'usuario' }], // Incluye el modelo 'User' (tabla intermedia) asociado a cada producto.
-            order: [['created_at', 'DESC']] // Ordena los resultados por fecha de creación en orden descendente.
+            include: [{ model: db.User, as: 'usuario' }], // Incluimos el modelo 'User' (tabla intermedia) asociado a cada producto.
+            order: [['created_at', 'DESC']] // Ordenamos los resultados por fecha de creación en orden descendente (entonces los productos más nuevos aparecerán arriba)
         })
-        .then(productos => {
+        .then(function (productos){
             if (productos.length === 0) {
-                return res.render('search-results', { productos: [], mensaje: "No hay resultados para su criterio de búsqueda" });
+                return res.render('search-results', { 
+                    productos: [], 
+                    mensaje: "No hay resultados para su criterio de búsqueda" });
             }//Si no se encontraron productos, renderiza la vista 'search-results' con un mensaje de que no hay resultados.
 
-            res.render('search-results', { productos, mensaje: null }); //Si se encontraron productos, renderiza la vista 'search-results' con los productos encontrados.
+            res.render('search-results', { 
+                productos, 
+                mensaje: null }); //Si se encontraron productos, renderiza la vista 'search-results' con los productos encontrados.
         })
-        .catch(error => {
+        .catch(function(error){
             console.error(error);
             res.status(500).send('Error interno del servidor');
         });
@@ -136,13 +140,15 @@ let productController={
         })
         .then(function(product) {
             if (!product) {
-                return res.render('error', { message: 'Producto no encontrado' });
+                return res.render('error', { 
+                    message: 'Producto no encontrado' });
             }
             
             if (product.id_usuario !== userId) {
                 return res.status(403).send("No tienes permiso para editar este producto");
             }
-            res.render('product-edit', { producto: product,});
+            res.render('product-edit', { 
+                producto: product,});
         })
         .catch(error => {
             console.error(error);
@@ -189,7 +195,7 @@ let productController={
                 }
                 res.render('product-edit', { producto: product, errors: errors.array(), old: req.body });
             })
-            .catch(error => {
+            .catch(function(error){
                 console.error(error);
                 res.status(500).send('Error interno del servidor');
             });
