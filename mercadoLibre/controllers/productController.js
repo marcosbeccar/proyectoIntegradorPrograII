@@ -172,11 +172,30 @@ let productController={
             console.log(error); 
             return res.status(500).send("Hubo un error al editar el producto"); // Envía una respuesta de error al cliente
         });
-        } else {
-           return res.render("product-edit", { errors: errors.array(), old: req.body });
-        }
+        } else { //DATOS ANTERIORES
+            const userId = Number(req.params.userId);
+            const productId = Number(req.params.productId);
+        
+            db.Product.findByPk(productId, {
+                include: [{ model: db.User, as: 'usuario' }]
+            })
+            .then(function(product) {
+                if (!product) {
+                    return res.render('error', { message: 'Producto no encontrado' });
+                }
+                
+                if (product.id_usuario !== userId) {
+                    return res.status(403).send("No tienes permiso para editar este producto");
+                }
+                res.render('product-edit', { producto: product, errors: errors.array(), old: req.body });
+            })
+            .catch(error => {
+                console.error(error);
+                res.status(500).send('Error interno del servidor');
+            });
+            }
       },
-      
+
       eliminarProducto: function(req,res){
         const productId = Number(req.params.id);
         const userId = req.cookies.userLogueado ? req.cookies.userLogueado.id : req.session.userSession.id;
