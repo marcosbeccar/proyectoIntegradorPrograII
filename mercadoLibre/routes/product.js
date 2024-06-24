@@ -17,7 +17,7 @@ router.get("/detalleProducto/:id", productController.detalleProducto);
 router.get("/resultadoBusqueda", productController.resultadoBusqueda);
 router.get("/agregarProducto", productController.agregarProducto);
 router.post("/agregarProducto", validationsAgregarYEditarProducto, productController.productoAgregado);
-router.get("/editarProducto/:id/:productId", productController.editarProducto);
+router.get("/editarProducto/:productId", productController.editarProducto);
 router.post("/editarProducto", validationsAgregarYEditarProducto, productController.productoEditado);
 router.post("/eliminarProducto/:id", productController.eliminarProducto);
 

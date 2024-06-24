@@ -12,15 +12,15 @@
         <div class="d-flex align-items-center">
             <h2 class="products-title"><%= producto.nombreProducto %></h2>
             
-            <% let loggedInUserId; %>
-            <%  if (cookies1.userLogueado) { %>
-            <%      loggedInUserId = cookies.userLogueado.id; %>
-            <%    } else if (locals.userSession) { %>
-            <%        loggedInUserId = locals.userSession.id; %>
-            <%    } else { %>
-            <%        loggedInUserId = null; %>
-            <%   } %>
-
+            <% 
+                let loggedInUserId = null; 
+                if (cookies.userLogueado) { 
+                    loggedInUserId = cookies.userLogueado.id; 
+                } else if (locals.userSession) { 
+                    loggedInUserId = locals.userSession.id; 
+                } 
+            %>
+            
             <%    if (producto.id_usuario === loggedInUserId) { %>
 
                 <p class="product-detail-description">
