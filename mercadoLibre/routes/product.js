@@ -19,5 +19,6 @@ router.get("/agregarProducto", productController.agregarProducto);
 router.post("/agregarProducto", validationsAgregarYEditarProducto, productController.productoAgregado);
 router.get("/editarProducto/:id/:productId", productController.editarProducto);
 router.post("/editarProducto", validationsAgregarYEditarProducto, productController.productoEditado);
+router.post("/eliminarProducto/:id", productController.eliminarProducto);
 
 module.exports = router;

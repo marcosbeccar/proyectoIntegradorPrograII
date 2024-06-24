@@ -174,7 +174,31 @@ let productController={
         } else {
            return res.render("product-edit", { errors: errors.array(), old: req.body });
         }
-      }
+      },
+      
+      eliminarProducto: function(req,res){
+        const productId = Number(req.params.id);
+        const userId = req.cookies.userLogueado ? req.cookies.userLogueado.id : req.session.userSession.id;
+
+        db.Product.findByPk(productId)
+            .then(producto => {
+                if (!producto) {
+                    return res.render('error', { message: 'Producto no encontrado' });
+                }
+                if (producto.id_usuario !== userId) {
+                    return res.status(403).send("No tienes permiso para eliminar este producto");
+                }
+
+                return db.Product.destroy({ where: { id: productId } });
+            })
+            .then(() => {
+                res.redirect('/'); // Redirige a la página principal después de eliminar el producto
+            })
+            .catch(error => {
+                console.error(error);
+                res.status(500).send('Error interno del servidor');
+            });
+        }
     }
 
 module.exports = productController;
