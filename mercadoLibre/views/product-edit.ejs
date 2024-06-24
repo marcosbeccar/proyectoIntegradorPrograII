@@ -13,7 +13,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Editar producto</h2>
+				<h2 class="products-title">Editar producto: <%= producto.nombreProducto %></h2>
 			</div>
 			<% if (locals.errors) { %> <!--Solo si errors existe (locals.errors=errors)-->
                 <% errors.forEach(error => { %>
@@ -30,10 +30,12 @@
 				<input type="text" id="rutaImagen" name="rutaImagen" class="form-input" value="default.jpg"><br>
 
 				<label for="nombreProducto"> Nombre del producto:</label>
-				<input type="text" id="nombreProducto" name="nombreProducto" class="form-input"><br>
+				<input type="text" id="nombreProducto" name="nombreProducto" class="form-input"
+				value="<%= locals.old && old.nombreProducto ? old.nombreProducto : producto.nombreProducto %>"><br>
 
 				<label for="descripcionProducto"> Descripción:</label>
-				<input type="text" id="descripcionProducto" name="descripcionProducto" class="form-input"><br>
+				<input type="text" id="descripcionProducto" name="descripcionProducto" class="form-input"
+				value="<%= locals.old && old.descripcionProducto ? old.descripcionProducto : producto.descripcionProducto %>"><br>
 				
 				<% let userId = null; %>
 				<% if (locals.cookies && locals.cookies.userLogueado) { %> <!--Revisamos si existen las cookies y si contienen información del usuario logueado -->

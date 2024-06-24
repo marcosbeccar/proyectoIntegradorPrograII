@@ -3,7 +3,7 @@ const { validationResult, cookie } = require("express-validator"); //pido las va
 //se usa validationResult como palabra clave, no se puede poner otro nombre
 
 let productController={
-    index:function(req,res){
+    index:function(req,res){ //home
         
         db.Product.findAll({
             order: [['createdAt', 'DESC']], // Ordenamos por fecha de creación de forma descendente
@@ -17,7 +17,7 @@ let productController={
         })
         .catch(error => {
             console.error(error);
-            res.status(500).send('Error interno del servidor');
+            res.status(500).send('Falta prender la base de datos :)');
         });
     
 
@@ -177,7 +177,7 @@ let productController={
             return res.status(500).send("Hubo un error al editar el producto"); // Envía una respuesta de error al cliente
         });
         } else { //DATOS ANTERIORES
-            const userId = Number(req.params.userId);
+            const userId = (req.cookies.userLogueado.id || req.session.userSession.id);//acá solo le cambié esto con respecto al anterior, porque no tengo ese id en la URL como antes
             const productId = Number(req.params.productId);
         
             db.Product.findByPk(productId, {
