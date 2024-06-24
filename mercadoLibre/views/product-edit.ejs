@@ -36,9 +36,9 @@
 				<input type="text" id="descripcionProducto" name="descripcionProducto" class="form-input"><br>
 				
 				<% let userId = null; %>
-				<% if (locals.cookies && locals.cookies.userLogueado) { %>
+				<% if (locals.cookies && locals.cookies.userLogueado) { %> <!--Revisamos si existen las cookies y si contienen información del usuario logueado -->
 					<% userId = locals.cookies.userLogueado.id; %>
-				<% } else if (locals.userSession) { %>
+				<% } else if (locals.userSession) { %> <!-- Verificamos si hay un usuario logueado en la sesión -->
 					<% userId = locals.userSession.id; %>
 				<% } %>
 
@@ -48,7 +48,7 @@
 
 
 			</div>
-				<button type="submit" id="submit-btn">Agregar Producto</button>
+				<button type="submit" id="submit-btn">Editar producto</button>
 			</form>
 
 

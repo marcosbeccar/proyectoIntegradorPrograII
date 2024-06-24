@@ -204,7 +204,6 @@ let productController={
 
       eliminarProducto: function(req,res){
         const productId = Number(req.params.id);// Convertimos el id del producto de la URL a un número
-        // Obtenemos el id del usuario logueado desde las cookies o la sesión utilizando un operador ternario:
         
         let userId; //creamos la variable
 
