@@ -215,10 +215,10 @@ profileEdit: function (req, res) {
   logout: function(req, res) {
     req.session.destroy(function(error) {
         if (error) {
-            console.log(error);
+            console.log(error); //Si hay un error, se imprime en la consola.
         }
-        res.clearCookie("userLogueado"); // Borra la cookie de usuario logueado
-        res.redirect("/"); // Redirige a la página principal
+        res.clearCookie("userLogueado"); // Borramos la cookie de usuario logueado
+        res.redirect("/"); // Redirigimos a la página principal
     });
   }
 

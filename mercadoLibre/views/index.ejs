@@ -24,8 +24,9 @@
 
         <!-- Primera Sección -->
         <div class="row">
-            <% productos.forEach((producto, index) => { %>
+            <% for (let index = 0; index < productos.length; index++) { %>
                 <% if (index < 4) { %>
+                    <% let producto = productos[index]; %>
                     <div class="col-12 col-md-6 col-lg-3 product-card-container">
                         <div class="product-card">
                             <img src="/images/<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>" class="product-img">
@@ -44,7 +45,7 @@
                         </div>
                     </div>
                 <% } %>
-            <% }); %>
+            <% } %>
         </div>
 
         <!-- Segunda Sección -->
@@ -54,8 +55,9 @@
 		<br>
 		<br>
         <div class="row">
-            <% productos.forEach((producto, index) => { %>
+            <% for (let index = 0; index < productos.length; index++) { %>
                 <% if (index >= 4 && index < 8) { %>
+                    <% let producto = productos[index]; %>
                     <div class="col-12 col-md-6 col-lg-3 product-card-container">
                         <div class="product-card">
                             <img src="/images/<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>" class="product-img">
@@ -74,8 +76,10 @@
                         </div>
                     </div>
                 <% } %>
-            <% }); %>
+            <% } %>
         </div>
+
+
 
         <!-- Tercera Sección -->
 
@@ -85,8 +89,9 @@
 		<br>
 		<br>
         <div class="row">
-            <% productos.forEach((producto, index) => { %>
+            <% for (let index = 0; index < productos.length; index++) { %>
                 <% if (index >= 8 && index < 12) { %>
+                    <% let producto = productos[index]; %>
                     <div class="col-12 col-md-6 col-lg-3 product-card-container">
                         <div class="product-card">
                             <img src="/images/<%= producto.rutaImagen %>" alt="<%= producto.nombreProducto %>" class="product-img">
@@ -105,8 +110,9 @@
                         </div>
                     </div>
                 <% } %>
-            <% }); %>
+            <% } %>
         </div>
+        
 
     </div>
 	<!-- /Más comentados -->

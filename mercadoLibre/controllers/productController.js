@@ -10,12 +10,12 @@ let productController={
             limit: 12, // Limitamos a los 12 productos más recientes
             include: [{ model: db.User, as: 'usuario' }] // Incluimos la información del usuario que publicó el producto
         })
-        .then(productos => {
+        .then(function(productos){
             res.render('index', {
                 productos // Pasa los productos a la vista
             });
         })
-        .catch(error => {
+        .catch(function(error){
             console.error(error);
             res.status(500).send('Error interno del servidor');
         });
